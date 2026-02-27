@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36717.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class Libraries", "Class Libraries", "{7B7B800E-F137-767A-B102-F9B4B78D850C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console Projects", "Console Projects", "{9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicObjectsExamples", "BasicObjectsExamples\BasicObjectsExamples.csproj", "{57648A8D-8E68-B818-B86B-08C76C8C3E2D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{089100B1-113F-4E66-888A-E83F3999EAFD}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpectreConsoleLibrary", "SpectreConsoleLibrary\SpectreConsoleLibrary.csproj", "{7BD0869D-E986-E050-906F-38F3668DFD88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonHelpersLibrary", "CommonHelpersLibrary\CommonHelpersLibrary.csproj", "{D9FA3FA3-2B8F-DE71-1200-D75B80C6D245}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BogusLibrary", "BogusLibrary\BogusLibrary.csproj", "{DDCA03E2-2BF7-E29B-55B5-4E176BCBCA9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByRefExamples", "ByRefExamples\ByRefExamples.csproj", "{5A7FD297-61AD-E2F4-F69B-4E3A3426E30D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57648A8D-8E68-B818-B86B-08C76C8C3E2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57648A8D-8E68-B818-B86B-08C76C8C3E2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57648A8D-8E68-B818-B86B-08C76C8C3E2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57648A8D-8E68-B818-B86B-08C76C8C3E2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD0869D-E986-E050-906F-38F3668DFD88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD0869D-E986-E050-906F-38F3668DFD88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD0869D-E986-E050-906F-38F3668DFD88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD0869D-E986-E050-906F-38F3668DFD88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9FA3FA3-2B8F-DE71-1200-D75B80C6D245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9FA3FA3-2B8F-DE71-1200-D75B80C6D245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9FA3FA3-2B8F-DE71-1200-D75B80C6D245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9FA3FA3-2B8F-DE71-1200-D75B80C6D245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDCA03E2-2BF7-E29B-55B5-4E176BCBCA9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDCA03E2-2BF7-E29B-55B5-4E176BCBCA9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDCA03E2-2BF7-E29B-55B5-4E176BCBCA9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDCA03E2-2BF7-E29B-55B5-4E176BCBCA9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A7FD297-61AD-E2F4-F69B-4E3A3426E30D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A7FD297-61AD-E2F4-F69B-4E3A3426E30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A7FD297-61AD-E2F4-F69B-4E3A3426E30D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A7FD297-61AD-E2F4-F69B-4E3A3426E30D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{57648A8D-8E68-B818-B86B-08C76C8C3E2D} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
+		{7BD0869D-E986-E050-906F-38F3668DFD88} = {7B7B800E-F137-767A-B102-F9B4B78D850C}
+		{D9FA3FA3-2B8F-DE71-1200-D75B80C6D245} = {7B7B800E-F137-767A-B102-F9B4B78D850C}
+		{DDCA03E2-2BF7-E29B-55B5-4E176BCBCA9E} = {7B7B800E-F137-767A-B102-F9B4B78D850C}
+		{5A7FD297-61AD-E2F4-F69B-4E3A3426E30D} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B96CB79D-6D7B-4B0C-A00F-CD46EC5D6D4E}
+	EndGlobalSection
+EndGlobal
