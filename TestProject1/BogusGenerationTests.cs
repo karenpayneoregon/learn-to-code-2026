@@ -7,7 +7,7 @@ using TestProject1.Base;
 namespace TestProject1;
 
 [TestClass]
-public sealed class BogusGenerationTests
+public sealed class BogusGenerationTests : TestBase
 {
     
     /// <summary>
@@ -27,11 +27,11 @@ public sealed class BogusGenerationTests
     public void ValidateHumanGeneratorFirstItemFirstName()
     {
         // arrange
-        var human = HumanGenerator.Create(1);
+        var human = _human;
         var expected = "Marlon";
 
         // act
-        var firstName = human.FirstOrDefault().FirstName;
+        var firstName = human.FirstName;
 
         // assert
         Assert.AreEqual(firstName, expected);
@@ -56,13 +56,22 @@ public sealed class BogusGenerationTests
     public void ValidateHumanGeneratorFirstName()
     {
         // arrange
-        var human = HumanGenerator.Create(1);
+        var human = _human;
         var expected = "Marlon";
 
         // act
-        var firstName = human.FirstOrDefault().FirstName;
+        var firstName = human.FirstName;
 
         // assert
         firstName.ShouldBe(expected);
+    }
+
+    private static Human _human;
+
+    [ClassInitialize]
+    public static void ClassInitialize(TestContext testContext)
+    {
+        TestResults = new List<TestContext>();
+        _human = HumanGenerator.Create(1).FirstOrDefault() ?? throw new InvalidOperationException("HumanGenerator.Create(1) did not return any items."); ;
     }
 }
