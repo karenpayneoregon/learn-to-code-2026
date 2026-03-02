@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByRefExamples", "ByRefExamp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IComparerIEqualityComparerApp", "IComparerIEqualityComparerApp\IComparerIEqualityComparerApp.csproj", "{758625B5-DCCB-41BC-AFE2-51F8DBD75237}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Test Projects", "Unit Test Projects", "{84E32C5F-41C3-62D4-9E1F-871977EC6E42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{79DAD547-9E28-49CC-908D-F650431BC6D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +59,10 @@ Global
 		{758625B5-DCCB-41BC-AFE2-51F8DBD75237}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{758625B5-DCCB-41BC-AFE2-51F8DBD75237}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{758625B5-DCCB-41BC-AFE2-51F8DBD75237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79DAD547-9E28-49CC-908D-F650431BC6D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79DAD547-9E28-49CC-908D-F650431BC6D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79DAD547-9E28-49CC-908D-F650431BC6D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79DAD547-9E28-49CC-908D-F650431BC6D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +74,7 @@ Global
 		{DDCA03E2-2BF7-E29B-55B5-4E176BCBCA9E} = {7B7B800E-F137-767A-B102-F9B4B78D850C}
 		{5A7FD297-61AD-E2F4-F69B-4E3A3426E30D} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
 		{758625B5-DCCB-41BC-AFE2-51F8DBD75237} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
+		{79DAD547-9E28-49CC-908D-F650431BC6D7} = {84E32C5F-41C3-62D4-9E1F-871977EC6E42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B96CB79D-6D7B-4B0C-A00F-CD46EC5D6D4E}
