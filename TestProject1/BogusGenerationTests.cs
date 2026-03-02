@@ -1,5 +1,6 @@
 ﻿using BogusLibrary.Classes;
 using BogusLibrary.Models;
+using KellermanSoftware.CompareNetObjects;
 using Shouldly;
 using TestProject1.Base;
 
@@ -81,4 +82,19 @@ public sealed partial class BogusGenerationTests : TestBase
         firstName.ShouldNotBe(expected);
     }
 
+    [TestMethod]
+    [TestTraits(Trait.Keller)]
+    public void CompareHumans()
+    {
+        // arrange
+        CompareLogic compare = new();
+        compare.Config.MembersToIgnore.Add("BirthDay");
+
+        // act
+        ComparisonResult result = compare.Compare(_human, _testHuman);
+
+        // assert
+        Assert.IsTrue(result.AreEqual);
+
+    }
 }

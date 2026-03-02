@@ -7,7 +7,8 @@
         /// </summary>
         PlaceHolder,
         Bogus,
-        BogusShouldly
+        BogusShouldly,
+        Keller
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.

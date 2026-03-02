@@ -1,5 +1,7 @@
 ﻿using BogusLibrary.Classes;
 using BogusLibrary.Models;
+using KellermanSoftware.CompareNetObjects;
+using System.Diagnostics;
 using System.Reflection;
 using System.Text.Json;
 #pragma warning disable IDE0130
@@ -35,7 +37,7 @@ public sealed partial class BogusGenerationTests
             FirstName = "Marlon",
             LastName = "Balistreri",
             BirthDate = new DateOnly(2001, 12, 21),
-            BirthDay = new DateTime(1988,7,21,5,37,0),
+            BirthDay = new DateTime(1988,7,21,6,14,43),
             Email = "Marlon.Balistreri@hotmail.com",
             Gender = Gender.Male,
             SocialSecurityNumber = "793393519",
@@ -49,8 +51,6 @@ public sealed partial class BogusGenerationTests
                 Country = "United Arab Emirates"
             }
         };
-
-        
 
     }
     
