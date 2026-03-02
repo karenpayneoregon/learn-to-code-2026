@@ -53,14 +53,4 @@ public sealed partial class BogusGenerationTests
         };
 
     }
-    
-    private static void SerializeAndSaveHuman()
-    {
-        string jsonString = JsonSerializer.Serialize(_human, Indented);
-        File.WriteAllText("human.json", jsonString);
-        string jsonString1 = JsonSerializer.Serialize(_testHuman, Indented);
-        File.WriteAllText("test_human.json", jsonString1);
-    }
-
-    public static JsonSerializerOptions Indented => new() { WriteIndented = true };
 }
