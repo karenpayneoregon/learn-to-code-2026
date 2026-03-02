@@ -2,12 +2,11 @@
 using BogusLibrary.Models;
 using Shouldly;
 using TestProject1.Base;
-#pragma warning disable MSTEST0017
 
 namespace TestProject1;
 
 [TestClass]
-public sealed class BogusGenerationTests : TestBase
+public sealed partial class BogusGenerationTests : TestBase
 {
     
     /// <summary>
@@ -28,13 +27,13 @@ public sealed class BogusGenerationTests : TestBase
     {
         // arrange
         var human = _human;
-        var expected = "Marlon";
+        const string expected = "Marlon";
 
         // act
         var firstName = human.FirstName;
 
         // assert
-        Assert.AreEqual(firstName, expected);
+        Assert.AreEqual(expected, firstName);
 
     }
 
@@ -57,7 +56,7 @@ public sealed class BogusGenerationTests : TestBase
     {
         // arrange
         var human = _human;
-        var expected = "Marlon";
+        const string expected = "Marlon";
 
         // act
         var firstName = human.FirstName;
@@ -66,12 +65,20 @@ public sealed class BogusGenerationTests : TestBase
         firstName.ShouldBe(expected);
     }
 
-    private static Human _human;
-
-    [ClassInitialize]
-    public static void ClassInitialize(TestContext testContext)
+    [TestMethod]
+    [TestTraits(Trait.BogusShouldly)]
+    public void ValidateHumanGeneratorNotFirstName()
     {
-        TestResults = new List<TestContext>();
-        _human = HumanGenerator.Create(1).FirstOrDefault() ?? throw new InvalidOperationException("HumanGenerator.Create(1) did not return any items."); ;
+        // arrange
+        var human = _human;
+        const string expected = "Marlon";
+
+        // act
+        human.FirstName = "NotMarlon";
+        var firstName = human.FirstName;
+
+        // assert
+        firstName.ShouldNotBe(expected);
     }
+
 }
