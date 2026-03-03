@@ -1,15 +1,6 @@
 ﻿namespace TestProject1.Base
 {
-    public enum Trait
-    {
-        /// <summary>
-        /// Place holder 
-        /// </summary>
-        PlaceHolder,
-        Bogus,
-        BogusShouldly,
-        Keller
-    }
+
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.
     /// </summary>

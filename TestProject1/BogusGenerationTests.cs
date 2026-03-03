@@ -75,11 +75,12 @@ public sealed partial class BogusGenerationTests : TestBase
         const string expected = "Marlon";
 
         // act
-        human.FirstName = "NotMarlon";
+        human.FirstName = "NotMarlon"; // change local human not to change _human
         var firstName = human.FirstName;
 
         // assert
         firstName.ShouldNotBe(expected);
+
     }
 
     [TestMethod]
@@ -91,8 +92,9 @@ public sealed partial class BogusGenerationTests : TestBase
         compare.Config.MembersToIgnore.Add("BirthDay");
 
         // act
+        _human.FirstName = "Marlon";
         ComparisonResult result = compare.Compare(_human, _testHuman);
-
+        
         // assert
         Assert.IsTrue(result.AreEqual);
 

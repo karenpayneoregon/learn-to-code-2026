@@ -9,7 +9,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Product>Basic</Product>
+		<Product>DistinctBy samples</Product>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -29,7 +29,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Serilog" Version="4.3.0" />
+		<PackageReference Include="Serilog" Version="4.3.1" />
 		<PackageReference Include="SeriLogThemesLibrary" Version="1.0.0.2" />
 		<PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
 		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
@@ -52,6 +52,10 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\CommonHelpersLibrary\CommonHelpersLibrary.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Dumpify" Version="0.7.0" />
 	</ItemGroup>
 
 	<!--<ItemGroup>

@@ -1,6 +1,8 @@
-﻿using Spectre.Console;
+﻿using Dumpify;
+using Spectre.Console;
 using IComparerIEqualityComparerApp.Classes.Core;
 using IComparerIEqualityComparerApp.Models;
+using Serilog;
 
 namespace IComparerIEqualityComparerApp.Classes;
 internal class Operations
@@ -14,17 +16,9 @@ internal class Operations
     /// </remarks>
     public static void DistinctPeople()
     {
-
         SpectreConsoleHelpers.PrintCyan();
 
-        var people = new List<Person>
-        {
-            new Person { Id = 1, FirstName = "John", LastName = "doe", BirthDate = new DateOnly(1990, 1, 1) },
-            new Person { Id = 2, FirstName = "Jane", LastName = "Doe", BirthDate = new DateOnly(1992, 2, 2) },
-            new Person { Id = 3, FirstName = "john", LastName = "Doe", BirthDate = new DateOnly(1990, 1, 1) },
-        };
-
-        var count = people.Count;
+        var people = People();
 
         var distinctPeople = people.DistinctBy(x =>
         (
@@ -33,12 +27,17 @@ internal class Operations
             x.BirthDate
         )).ToList();
 
-        var distinctCount = distinctPeople.Count;
-
-        foreach (var person in distinctPeople)
-        {
-            AnsiConsole.MarkupLine($"[DeepPink3]{person.FirstName,8} {person.LastName} {person.BirthDate}[/]");
-        }
+        distinctPeople.Dump();
     }
 
+    private static List<Person> People()
+    {
+        var people = new List<Person>
+        {
+            new Person { Id = 1, FirstName = "John", LastName = "doe", BirthDate = new DateOnly(1990, 1, 1) },
+            new Person { Id = 2, FirstName = "Jane", LastName = "Doe", BirthDate = new DateOnly(1992, 2, 2) },
+            new Person { Id = 3, FirstName = "john", LastName = "Doe", BirthDate = new DateOnly(1990, 1, 1) },
+        };
+        return people;
+    }
 }

@@ -4,6 +4,8 @@ using KellermanSoftware.CompareNetObjects;
 using System.Diagnostics;
 using System.Reflection;
 using System.Text.Json;
+using TestProject1.Classes;
+
 #pragma warning disable IDE0130
 
 namespace TestProject1;
@@ -27,30 +29,27 @@ public sealed partial class BogusGenerationTests
     {
         TestResults = new List<TestContext>();
         
-        _human = HumanGenerator.Create(1).FirstOrDefault() ?? 
-                 throw new InvalidOperationException(
-                     "HumanGenerator.Create(1) did not return any items."); ;
-        
-        _testHuman = new Human
-        {
-            Id = 1,
-            FirstName = "Marlon",
-            LastName = "Balistreri",
-            BirthDate = new DateOnly(2001, 12, 21),
-            BirthDay = new DateTime(1988,7,21,6,14,43),
-            Email = "Marlon.Balistreri@hotmail.com",
-            Gender = Gender.Male,
-            SocialSecurityNumber = "793393519",
-            Address = new Address
-            {
-                Id = 1,
-                Street = "Price Heights",
-                City = "West Angelo",
-                State = "Virginia",
-                ZipCode = "65553-7845",
-                Country = "United Arab Emirates"
-            }
-        };
+        _human = TestConfiguration.Instance.Human;
+        _testHuman = TestConfiguration.Instance.TestHuman;
 
+    }
+
+    [TestCleanup]
+    public void TestCleanup()
+    {
+        // Access the name of the test that just ran
+        Console.WriteLine($"Test Cleanup for: {TestContext.TestName}");
+
+        // You can also check the test outcome (e.g., Passed, Failed)
+        if (TestContext.CurrentTestOutcome == UnitTestOutcome.Passed)
+        {
+            // Do something specific for a passed test
+        } else if (TestContext.CurrentTestOutcome == UnitTestOutcome.Timeout)
+        {
+            Console.WriteLine("Test Timeout");
+        }   
+        {
+            // Do something specific for a failed test
+        }
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using static ConsoleConfigurationLibrary.Classes.ApplicationConfiguration;
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
 
 // ReSharper disable once CheckNamespace
 namespace IComparerIEqualityComparerApp;
@@ -36,5 +37,6 @@ internal partial class Program
         setup.GetEntitySettings();
 
         SpectreConsoleHelpers.SetEncoding();
+        DumpSetup.Configure();
     }
 }
