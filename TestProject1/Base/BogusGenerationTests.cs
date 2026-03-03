@@ -1,6 +1,8 @@
 ﻿using BogusLibrary.Classes;
 using BogusLibrary.Models;
 using KellermanSoftware.CompareNetObjects;
+using Serilog;
+using Serilog.Events;
 using System.Diagnostics;
 using System.Reflection;
 using System.Text.Json;
@@ -27,6 +29,8 @@ public sealed partial class BogusGenerationTests
     [ClassInitialize]
     public static void ClassInitialize(TestContext testContext)
     {
+        
+        
         TestResults = new List<TestContext>();
         
         _human = TestConfiguration.Instance.Human;
@@ -34,6 +38,14 @@ public sealed partial class BogusGenerationTests
 
     }
 
+    /// <summary>
+    /// Cleans up resources and performs necessary actions after each test execution.
+    /// </summary>
+    /// <remarks>
+    /// This method is executed after every test in the class to ensure proper cleanup.
+    /// It logs the name of the test that just ran and checks the test outcome to perform
+    /// specific actions based on whether the test passed, failed, or timed out.
+    /// </remarks>
     [TestCleanup]
     public void TestCleanup()
     {
@@ -47,9 +59,25 @@ public sealed partial class BogusGenerationTests
         } else if (TestContext.CurrentTestOutcome == UnitTestOutcome.Timeout)
         {
             Console.WriteLine("Test Timeout");
-        }   
+        } else if (TestContext.CurrentTestOutcome == UnitTestOutcome.Failed)
         {
-            // Do something specific for a failed test
+            if (TestContext.TestName == nameof(CompareHumans))
+            {
+                
+            }
+            Console.WriteLine("Test Failed");
         }
+    }
+    
+    [AssemblyInitialize]
+    public static void AssemblyInit(TestContext _)
+    {
+        SeriLogging.Setup();
+    }
+
+    [AssemblyCleanup]
+    public static void AssemblyCleanup()
+    {
+        Log.CloseAndFlush();
     }
 }

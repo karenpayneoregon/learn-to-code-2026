@@ -8,5 +8,6 @@ public enum Trait
     PlaceHolder,
     Bogus,
     BogusShouldly,
-    Keller
+    Keller,
+    Numbers
 }
