@@ -21,6 +21,14 @@ internal partial class Program
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
+    /// <summary>
+    /// Demonstrates the usage of various classes, including <see cref="FileOperations"/> and <see cref="ExcelOperations"/>,
+    /// to perform file-related operations such as reading files from specified folders or paths.
+    /// </summary>
+    /// <remarks>
+    /// This method showcases the instantiation and usage of classes like <see cref="FileOperations"/> and <see cref="ExcelOperations"/> 
+    /// with different configurations, leveraging the singleton instance of <see cref="ApplicationSettings"/> for shared settings.
+    /// </remarks>
     private static void SimpleClassesSamples()
     {
         var warming = ApplicationSettings.Instance.FolderName;
