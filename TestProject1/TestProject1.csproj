@@ -28,6 +28,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\BogusLibrary\BogusLibrary.csproj" />
+		<ProjectReference Include="..\TeamSettingsLibrary\TeamSettingsLibrary.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -38,6 +39,12 @@
 		<PackageReference Include="SeriLogThemesLibrary" Version="1.0.0.1" />
 		<PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
 		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="appsettings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>

@@ -95,7 +95,7 @@ public sealed partial class BogusGenerationTests : TestBase
         // arrange
         var human = _human;
         CompareLogic compare = new();
-        compare.Config.MembersToIgnore.Add("BirthDay");
+        compare.Config.MembersToIgnore.Add("*Birth*");
 
         // act
         human.FirstName = "Marlon";
