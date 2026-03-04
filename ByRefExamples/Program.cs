@@ -56,10 +56,10 @@ internal partial class Program
 
         var accountNumber = "ABC89";
 
-        AnsiConsole.MarkupLine($"[yellow]{accountNumber}[/]");
+        AnsiConsole.MarkupLine($"Original [yellow]{accountNumber}[/]");
         var accountNumberChanged = Helpers.NextValue(accountNumber);
-        AnsiConsole.MarkupLine($"[yellow]{accountNumber}[/]");
-        AnsiConsole.MarkupLine($"[yellow]{accountNumberChanged}[/]");
+        AnsiConsole.MarkupLine($"Still original [yellow]{accountNumber}[/]");
+        AnsiConsole.MarkupLine($"Next value is [yellow]{accountNumberChanged}[/]");
 
         Console.WriteLine();
     }
