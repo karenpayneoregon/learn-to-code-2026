@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadSettingsFromAppsettings
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamSettingsLibrary", "TeamSettingsLibrary\TeamSettingsLibrary.csproj", "{8071997F-54D3-4C6A-ADE6-A857FFB93B57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratorHumansSample", "GeneratorHumansSample\GeneratorHumansSample.csproj", "{84FDA711-CB2A-4123-9F68-2E1707CE23BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{8071997F-54D3-4C6A-ADE6-A857FFB93B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8071997F-54D3-4C6A-ADE6-A857FFB93B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8071997F-54D3-4C6A-ADE6-A857FFB93B57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84FDA711-CB2A-4123-9F68-2E1707CE23BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84FDA711-CB2A-4123-9F68-2E1707CE23BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84FDA711-CB2A-4123-9F68-2E1707CE23BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84FDA711-CB2A-4123-9F68-2E1707CE23BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{79DAD547-9E28-49CC-908D-F650431BC6D7} = {84E32C5F-41C3-62D4-9E1F-871977EC6E42}
 		{AF4928E3-F187-4D31-AB47-3BD386F3B24B} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
 		{8071997F-54D3-4C6A-ADE6-A857FFB93B57} = {7B7B800E-F137-767A-B102-F9B4B78D850C}
+		{84FDA711-CB2A-4123-9F68-2E1707CE23BF} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B96CB79D-6D7B-4B0C-A00F-CD46EC5D6D4E}
