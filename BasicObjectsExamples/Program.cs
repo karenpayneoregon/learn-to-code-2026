@@ -9,7 +9,6 @@ using Spectre.Console;
 using SpectreConsoleLibrary;
 // ReSharper disable ConvertIfStatementToConditionalTernaryExpression
 
-// Karen has made a change
 
 
 namespace BasicObjectsExamples;
