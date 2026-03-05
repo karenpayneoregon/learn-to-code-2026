@@ -2,7 +2,11 @@
 
 This project demonstrates simple unit tests, the use of a base class, and test events.
 
-:sparkles: Data is retrieved from `BogusLibrary.csproj`
+:sparkles: Data is retrieved from `BogusLibrary.csproj` in this solution. 
+
+## Microsoft Unit Testing Framework documentation
+
+:green_book: [Write tests with MSTest](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-mstest-writing-tests)
 
 ## NuGet Packages
 
@@ -11,6 +15,6 @@ This project demonstrates simple unit tests, the use of a base class, and test e
 
 ## TestConfiguration class
 
-The `TestConfiguration` class gets data used for test which is a singleton with a private constructor. The `Instance` method is used to get the instance of the class. Note the private constructor is called the first time the `Instance` method is called. 
+The `TestConfiguration` class gets data used for test which is a [singleton](https://csharpindepth.com/articles/singleton) with a private constructor. The `Instance` method is used to get the instance of the class. Note the private constructor is called the first time the `Instance` method is called. 
 
 ---
