@@ -15,7 +15,7 @@ internal partial class Program
 
         int[,,] cube =
         {
-            { {1,2,3}, {4,5,6}, {7,8,9} },
+            { {1,2,3},    {4,5,6},    {7,8,9} },
             { {10,11,12}, {13,14,15}, {16,17,18} },
             { {19,20,21}, {22,23,24}, {25,26,27} }
         };
@@ -26,11 +26,14 @@ internal partial class Program
 
         for (int x = 0; x < xLen; x++)
         {
-            var table = new Table().Border(TableBorder.Rounded).Title($"[cyan]Layer {x}[/]");
+            var table = new Table()
+                .Border(TableBorder.Rounded)
+                .BorderColor(Color.Cornsilk1)
+                .Title($"Row {x}");
 
             for (int z = 0; z < zLen; z++)
             {
-                table.AddColumn($"Z{z}");
+                table.AddColumn($"[HotPink bold]Col {z}[/]");
             }
 
             for (int y = 0; y < yLen; y++)
@@ -38,14 +41,15 @@ internal partial class Program
                 var row = new string[zLen];
                 
                 for (int z = 0; z < zLen; z++)
+                {
                     row[z] = cube[x, y, z].ToString();
+                }
 
                 table.AddRow(row);
                 
             }
 
             console.Write(table);
-            console.WriteLine();
         }
         
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
