@@ -1,16 +1,15 @@
-﻿using System.Diagnostics;
-using BogusLibrary.Classes;
+﻿using BogusLibrary.Classes;
 
 namespace GeneratorHumansSample;
 
 internal class Program
 {
+
     static void Main(string[] args)
     {
-        var humans = HumanGenerator.Create(20);
+        var peeps = PersonGenerator.Create(20, true);
 
-        Debugger.Break();
-        
-        Console.ReadLine();
+        PeopleFileWriter.WriteToFile(peeps, "people.txt");
+
     }
 }
