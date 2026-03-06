@@ -49,7 +49,7 @@ public class PersonGenerator
             .RuleFor(e => e.Email, (f, e) => f.Internet.Email(e.FirstName, e.LastName))
             .RuleFor(c => c.Gender, f => f.PickRandom<Gender>())
             .RuleFor(p => p.SocialSecurityNumber, f => f.Random.Replace("###-##-####").Replace("-",""))
-            .RuleFor(p => p.Address, f => AddressGenerator.Create().FirstOrDefault());
+            .RuleFor(p => p.Address, f => AddressGenerator.Create(1, true).FirstOrDefault());
 
         return faker.Generate(count);
 

@@ -13,22 +13,29 @@ namespace BogusLibrary.Classes;
 public static class AddressGenerator
 {
     /// <summary>
-    /// Generates a list of <see cref="Address"/> objects with randomly populated data.
+    /// Creates a list of <see cref="Address"/> objects with randomly generated data.
     /// </summary>
     /// <param name="count">
-    /// The number of <see cref="Address"/> objects to generate. Defaults to 10 if not specified.
+    /// The number of <see cref="Address"/> objects to generate. Defaults to 1 if not specified.
+    /// </param>
+    /// <param name="random">
+    /// A boolean value indicating whether to use a random seed for data generation. 
+    /// If <c>false</c>, a fixed seed is used for reproducible results.
     /// </param>
     /// <returns>
-    /// A list of <see cref="Address"/> objects with randomly generated data.
+    /// A list of <see cref="Address"/> objects populated with random data.
     /// </returns>
-    public static List<Address> Create(int count = 1)
+    public static List<Address> Create(int count = 1, bool random = false)
     {
 
-        Randomizer.Seed = new Random(337);
+        if (!random)
+        {
+            Randomizer.Seed = new Random(337);
+        }
 
         var faker = new Faker<Address>()
             .RuleFor(a => a.Id, f => f.IndexFaker + 1)
-            .RuleFor(a => a.Street, f => f.Address.StreetName())
+            .RuleFor(a => a.Street, f => f.Address.StreetAddress())
             .RuleFor(a => a.City, f => f.Address.City())
             .RuleFor(a => a.State, f => f.Address.State())
             .RuleFor(a => a.ZipCode, f => f.Address.ZipCode())
