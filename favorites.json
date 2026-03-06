@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "items": [
+    {
+      "name": "PeopleFileWriter.cs",
+      "path": "BogusLibrary\\Classes\\PeopleFileWriter.cs"
+    }
+  ]
+}

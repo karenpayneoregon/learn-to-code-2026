@@ -1,6 +1,6 @@
 ﻿using BogusLibrary.Models;
 
-namespace BogusLibrary.Classes;
+namespace BogusLibrary.Classes.Writers;
 public static class PeopleFileWriter
 {
     /// <summary>
@@ -14,7 +14,7 @@ public static class PeopleFileWriter
     /// </param>
     /// <remarks>
     /// Each <see cref="Person"/> object is written with its properties formatted and aligned.
-    /// The file includes details such as ID, name, gender, birth date, social security number, email, 
+    /// The file includes details such as ID, name, gender, birthdate, social security number, email, 
     /// and address information.
     /// </remarks>
     /// <exception cref="ArgumentNullException">
@@ -35,7 +35,7 @@ public static class PeopleFileWriter
 
         foreach (var person in people)
         {
-            writer.WriteLine($"Id{new string(' ', 30 - "Id".Length)}{person.Id}");
+            writer.WriteLine($"Id{new string(' ', 30 - "Id".Length)}{person.Id}                                  ");
             writer.WriteLine($"FirstName{new string(' ', 30 - "FirstName".Length)}{person.FirstName}");
             writer.WriteLine($"LastName{new string(' ', 30 - "LastName".Length)}{person.LastName}");
             writer.WriteLine($"Gender{new string(' ', 30 - "Gender".Length)}{person.Gender}");
