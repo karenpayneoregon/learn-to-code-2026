@@ -11,5 +11,6 @@ internal class Program
         
         var peeps = PersonGenerator.Create(20, true);
         PeopleFileWriter.WriteToFile(peeps, "people.txt");
+        PeopleFileWriter.GenerateCommaDelimitedFile(peeps, "people.csv");
     }
 }

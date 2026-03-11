@@ -52,4 +52,17 @@ public static class PeopleFileWriter
             writer.WriteLine(new string('-', 50));
         }
     }
+
+    public static void GenerateCommaDelimitedFile(List<Person> people, string filePath)
+    {
+        using var writer = new StreamWriter(filePath);
+
+        writer.WriteLine("Id,FirstName,LastName,Gender,BirthDate,SocialSecurityNumber,Email,Street,City,State,ZipCode");
+
+        foreach (var person in people)
+        {
+            var ssn = person.SocialSecurityNumber?.Replace("-", "") ?? string.Empty;
+            writer.WriteLine($"{person.Id},{person.FirstName},{person.LastName},{person.Gender},{person.BirthDate},{ssn},{person.Email},{person.Address.Street},{person.Address.City},{person.Address.State},{person.Address.ZipCode}");
+        }
+    }
 }
