@@ -2,6 +2,10 @@
   "version": 2,
   "items": [
     {
+      "name": "people.csv",
+      "path": "GeneratorHumansSample\\Files\\people.csv"
+    },
+    {
       "name": "PeopleFileWriter.cs",
       "path": "BogusLibrary\\Classes\\PeopleFileWriter.cs"
     }
