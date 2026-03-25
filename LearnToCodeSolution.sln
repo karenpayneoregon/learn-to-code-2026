@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LICENSE.md = LICENSE.md
 		localWindow.md = localWindow.md
 		readme.md = readme.md
+		VisualStudioOptions.md = VisualStudioOptions.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpectreConsoleLibrary", "SpectreConsoleLibrary\SpectreConsoleLibrary.csproj", "{7BD0869D-E986-E050-906F-38F3668DFD88}"
@@ -43,6 +44,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Debugging", "Debugging", "{BB3EAD2D-2593-F891-5B06-6A28D359519E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReleaseServiceApp", "ReleaseServiceApp\ReleaseServiceApp.csproj", "{E57E60CB-F167-A213-AA2C-21E47F4AF9AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp", "ContactsApp\ContactsApp.csproj", "{28BD2493-51D6-46C4-B468-F1D9C2528DBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicDebugging", "BasicDebugging\BasicDebugging.csproj", "{ED58D4B6-893A-4614-92E8-0F8739F07CEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IComparableApp", "IComparableApp\IComparableApp.csproj", "{943B5DAB-9E3E-425B-9648-916FD26A0CFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,6 +105,18 @@ Global
 		{E57E60CB-F167-A213-AA2C-21E47F4AF9AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E57E60CB-F167-A213-AA2C-21E47F4AF9AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E57E60CB-F167-A213-AA2C-21E47F4AF9AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28BD2493-51D6-46C4-B468-F1D9C2528DBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28BD2493-51D6-46C4-B468-F1D9C2528DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28BD2493-51D6-46C4-B468-F1D9C2528DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28BD2493-51D6-46C4-B468-F1D9C2528DBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED58D4B6-893A-4614-92E8-0F8739F07CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED58D4B6-893A-4614-92E8-0F8739F07CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED58D4B6-893A-4614-92E8-0F8739F07CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED58D4B6-893A-4614-92E8-0F8739F07CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{943B5DAB-9E3E-425B-9648-916FD26A0CFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{943B5DAB-9E3E-425B-9648-916FD26A0CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{943B5DAB-9E3E-425B-9648-916FD26A0CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{943B5DAB-9E3E-425B-9648-916FD26A0CFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +136,9 @@ Global
 		{3F352648-F1D3-4AC5-ACC3-9D500E553765} = {069FC8DB-04B2-23E4-A270-89C4AE3E5FC5}
 		{BB3EAD2D-2593-F891-5B06-6A28D359519E} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
 		{E57E60CB-F167-A213-AA2C-21E47F4AF9AE} = {BB3EAD2D-2593-F891-5B06-6A28D359519E}
+		{28BD2493-51D6-46C4-B468-F1D9C2528DBD} = {BB3EAD2D-2593-F891-5B06-6A28D359519E}
+		{ED58D4B6-893A-4614-92E8-0F8739F07CEE} = {BB3EAD2D-2593-F891-5B06-6A28D359519E}
+		{943B5DAB-9E3E-425B-9648-916FD26A0CFD} = {BB3EAD2D-2593-F891-5B06-6A28D359519E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B96CB79D-6D7B-4B0C-A00F-CD46EC5D6D4E}
