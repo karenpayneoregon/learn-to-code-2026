@@ -7,7 +7,7 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        //Samples.Switch();
+        Samples.Switch();
 
         var taxpayers = Samples.GetTaxpayers();
         Samples.LoopTaxPayers();
