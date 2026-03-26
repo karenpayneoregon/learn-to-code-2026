@@ -1,0 +1,49 @@
+﻿namespace CommonHelpersLibrary.Classes;
+
+/// <summary>
+/// Provides utility methods for working with dates, including retrieving weekend dates.
+/// </summary>
+/// <remarks>
+/// This static class contains methods to assist in date-related operations, such as identifying
+/// weekends within a specified range or month. It is designed to simplify common date-handling
+/// tasks.
+/// </remarks>
+public static class DateHelper
+{
+    public static List<DateOnly> GetWeekendDates(DateOnly startDate, DateOnly endDate)
+    {
+        if (endDate < startDate)
+        {
+            throw new ArgumentException("endDate must be >= startDate");
+        }
+
+        var results = new List<DateOnly>();
+
+        for (var date = startDate; date <= endDate; date = date.AddDays(1))
+        {
+            if (date.DayOfWeek is DayOfWeek.Saturday or DayOfWeek.Sunday)
+            {
+                results.Add(date);
+            }
+        }
+
+        return results;
+    }
+
+    /// <summary>
+    /// Retrieves a list of weekend dates (Saturdays and Sundays) for a specified year and month.
+    /// </summary>
+    /// <param name="year">The year for which to retrieve weekend dates.</param>
+    /// <param name="month">The month for which to retrieve weekend dates.</param>
+    /// <returns>A list of <see cref="DateOnly"/> objects representing the weekend dates within the specified year and month.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// Thrown if <paramref name="month"/> is less than 1 or greater than 12, or if <paramref name="year"/> is outside the valid range for <see cref="DateOnly"/>.
+    /// </exception>
+    public static List<DateOnly> GetWeekendDates(int year, int month)
+    {
+        var start = new DateOnly(year, month, 1);
+        var end = start.AddMonths(1).AddDays(-1);
+
+        return GetWeekendDates(start, end);
+    }
+}
