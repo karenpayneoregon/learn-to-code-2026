@@ -23,7 +23,7 @@ If you frequently hover over data tips while debugging, you may want to pin the 
 
 ## Keyboard Shortcuts
 
-| Commands                    | Keyboard Shortcuts [Special contexts] | Command ID                     |
+| Commands                    | Keyboard Shortcuts  | Command ID                     |
 |:---------------------------|:-------------------------------------|:----------------------------|--|
 | Break at function          | Ctrl+B                               | Debug.BreakatFunction          |
 | Break all                  | Ctrl+Alt+Break                       | Debug.BreakAll                 |
