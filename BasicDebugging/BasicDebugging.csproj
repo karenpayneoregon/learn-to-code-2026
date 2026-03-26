@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Product>Basic</Product>
+		<Product>Basic debuggings</Product>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -61,5 +61,9 @@
 	  <None Update="Transactions.txt">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Breakpoints\" />
 	</ItemGroup>
 </Project>

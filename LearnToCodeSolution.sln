@@ -42,6 +42,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeDimensionalSample", "ThreeDimensionalSample\ThreeDimensionalSample.csproj", "{3F352648-F1D3-4AC5-ACC3-9D500E553765}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Debugging", "Debugging", "{BB3EAD2D-2593-F891-5B06-6A28D359519E}"
+	ProjectSection(SolutionItems) = preProject
+		Debug.md = Debug.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReleaseServiceApp", "ReleaseServiceApp\ReleaseServiceApp.csproj", "{E57E60CB-F167-A213-AA2C-21E47F4AF9AE}"
 EndProject

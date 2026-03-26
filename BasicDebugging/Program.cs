@@ -7,10 +7,11 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        Samples.Switch();
+        SpectreConsoleHelpers.PinkPill(Justify.Left, "Learning debugging");
+        //Samples.Switch();
 
-        var taxpayers = Samples.GetTaxpayers();
-        Samples.LoopTaxPayers();
+        //var taxpayers = Samples.GetTaxpayers();
+        Samples.LoopTaxpayers();
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }

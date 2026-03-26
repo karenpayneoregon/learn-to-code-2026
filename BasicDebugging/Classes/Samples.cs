@@ -1,4 +1,6 @@
-﻿using BasicDebugging.Models;
+﻿using System.Diagnostics;
+using BasicDebugging.Classes.Core;
+using BasicDebugging.Models;
 using Spectre.Console;
 
 // ReSharper disable ConvertIfStatementToConditionalTernaryExpression
@@ -8,6 +10,8 @@ internal class Samples
 {
     public static void Switch()
     {
+        SpectreConsoleHelpers.PrintPink();
+        
         List<string[]> ReadTransFromFile()
         {
             var items = new List<string[]>();
@@ -79,12 +83,16 @@ internal class Samples
         ];
     }
 
-    public static void LoopTaxPayers()
+    public static void LoopTaxpayers()
     {
+        
+        SpectreConsoleHelpers.PrintPink();   
+        
         var taxpayers = GetTaxpayers();
 
         foreach (var taxpayer in taxpayers)
         {
+            //Debug.WriteLine($"{taxpayer.Income:C}");
         }
     }
 }
