@@ -40,3 +40,9 @@ If you frequently hover over data tips while debugging, you may want to pin the 
 | Step over                  | F10                                  | Debug.StepOver                 |
 | Stop debugging             | Shift+F5                             | Debug.StopDebugging            |
 | Toggle breakpoint          |       F9                              | Debug.ToggleBreakpoint         |
+
+## Skip method
+
+For methods or entire assemblies you never want to step into (such as third-party libraries or trivial utility functions), you can configure Visual Studio to ignore them by default:
+
+`[DebuggerStepThrough]` Attribute: In C# code, you can add the `[DebuggerStepThrough]` attribute to a method or property. The debugger will automatically step over this code.
