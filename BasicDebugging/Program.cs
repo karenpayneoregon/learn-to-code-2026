@@ -7,7 +7,7 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        SpectreConsoleHelpers.PinkPill(Justify.Left, "Learning debugging");
+        SpectreConsoleHelpers.PinkPill(Justify.Left, "Learning debugging...");
         //Samples.Switch();
 
         //var taxpayers = Samples.GetTaxpayers();
