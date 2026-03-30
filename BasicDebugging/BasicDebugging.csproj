@@ -66,4 +66,8 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Breakpoints\HitBreakpoints\" />
+	</ItemGroup>
 </Project>
