@@ -17,8 +17,9 @@ internal partial class Program
         /*
          * for 'function breakpoint' GetSeasonColor in DebuggerLibrary/SeasonHelper.cs
          */
-        Console.WriteLine($"\n{SeasonHelper.GetCurrentSeason()} " +
-                          $"color is {SeasonHelper.GetSeasonColor()}");
+        var color = SeasonHelper.GetSeasonColor();
+        AnsiConsole.MarkupLine($"\n{SeasonHelper.GetCurrentSeason()} " +
+                          $"color is [{color}]{color}[/]");
         
         //var taxpayers = Samples.GetTaxpayers();
         //Samples.LoopTaxpayers();
