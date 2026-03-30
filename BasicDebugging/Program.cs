@@ -23,6 +23,8 @@ internal partial class Program
         
         //var taxpayers = Samples.GetTaxpayers();
         //Samples.LoopTaxpayers();
+        
+        AppSettingsWriter.UpdateMainConnection();
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }

@@ -1,4 +1,5 @@
 ﻿using ConsoleConfigurationLibrary.Classes;
+using Microsoft.Extensions.Configuration;
 
 namespace BasicDebugging.Classes.Configuration;
 /// <summary>
@@ -6,10 +7,10 @@ namespace BasicDebugging.Classes.Configuration;
 /// </summary>
 internal class DataOperations
 {
-    // here for demonstration purposes
-    public static void GetSettings()
+    public static IConfigurationBuilder ConfigurationBuilder()
     {
-        Console.WriteLine(AppConnections.Instance.MainConnection);
-        Console.WriteLine(EntitySettings.Instance.CreateNew);
+        return new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
     }
 }
