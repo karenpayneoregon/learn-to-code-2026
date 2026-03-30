@@ -35,7 +35,7 @@ public static class AppSettingsWriter
 
         jsonNode[nameof(ConnectionStrings)] = new JsonObject
         {
-            ["MainConnection"]  = 
+            [nameof(ConnectionStrings.MainConnection)]  = 
                 "Data Source=.\\SQLEXPRESS;Initial Catalog=NorthWind;Integrated Security=True;Encrypt=False"
 
         };
@@ -43,8 +43,9 @@ public static class AppSettingsWriter
         File.WriteAllText(filePath, jsonNode.ToJsonString(Indented));
 
         DataConnections.Instance.MainConnection = 
-            jsonNode["ConnectionStrings"]?["MainConnection"]?.ToString() ?? string.Empty;
+            jsonNode[nameof(ConnectionStrings)]?[nameof(ConnectionStrings.MainConnection)]?.ToString() ?? string.Empty;
     }
 
     public static JsonSerializerOptions Indented => new() { WriteIndented = true };
 }
+
