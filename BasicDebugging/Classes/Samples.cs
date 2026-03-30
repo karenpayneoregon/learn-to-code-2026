@@ -95,5 +95,20 @@ internal class Samples
             //Debug.WriteLine($"{taxpayer.Income:C}");
         }
     }
+
+    public static void HitCount()
+    {
+        SpectreConsoleHelpers.PrintPink();
+
+        var taxpayers = GetTaxpayers();
+
+        foreach ((int Index, Taxpayer taxpayer)  in taxpayers.Index())
+        {
+            AnsiConsole.MarkupLine($"[bold]{Index, -3}[/] {taxpayer.FirstName, -10} " +
+                                   $"{taxpayer.LastName, -12}  {taxpayer.Income:C}");
+        }
+
+
+    }
 }
 

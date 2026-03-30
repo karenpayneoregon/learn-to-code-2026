@@ -41,6 +41,10 @@
 		<PackageReference Include="Spectre.Console.Json" Version="0.54.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\DebuggerLibrary\DebuggerLibrary.csproj" />
+	</ItemGroup>
+
 	<!--<ItemGroup>
 	  <ProjectReference Include="..\BogusLibrary\BogusLibrary.csproj" />
 	</ItemGroup>-->
