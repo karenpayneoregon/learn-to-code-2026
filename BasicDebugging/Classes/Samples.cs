@@ -86,9 +86,9 @@ internal class Samples
 
     public static void LoopTaxpayers()
     {
-        
-        SpectreConsoleHelpers.PrintPink();   
-        
+
+        SpectreConsoleHelpers.PrintPink();
+
         var taxpayers = GetTaxpayers();
 
         foreach (var taxpayer in taxpayers)
@@ -103,13 +103,14 @@ internal class Samples
 
         var taxpayers = GetTaxpayers();
 
-        foreach ((int Index, Taxpayer taxpayer)  in taxpayers.Index())
+        foreach ((int Index, Taxpayer taxpayer) in taxpayers.Index())
         {
-            AnsiConsole.MarkupLine($"[bold]{Index, -3}[/] {taxpayer.FirstName, -10} " +
-                                   $"{taxpayer.LastName, -12}  {taxpayer.Income:C}");
+            AnsiConsole.MarkupLine($"[bold]{Index,-3}[/] {taxpayer.FirstName,-10} " +
+                                   $"{taxpayer.LastName,-12}  {taxpayer.Income:C}");
         }
-
-
     }
+
+
 }
+
 

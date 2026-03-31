@@ -1,1 +1,15 @@
-https://learn.microsoft.com/en-us/dotnet/api/system.io.file.appendtext?view=net-10.0
+﻿https://learn.microsoft.com/en-us/dotnet/api/system.io.file.appendtext?view=net-10.0
+
+
+View -> Other Windows -> Output	
+
+
+DataConnections.MainConnection
+
+
+
+taxpayer.Income > 77000m
+
+taxpayer.Income > 77000m taxpayer.Gender == "Female"
+
+ID: {taxpayer.Id, -5}, Income: {taxpayer.Income:C} ❌

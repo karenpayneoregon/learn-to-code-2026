@@ -22,7 +22,7 @@ internal partial class Program
                           $"color is [{color}]{color}[/]");
         
         //var taxpayers = Samples.GetTaxpayers();
-        //Samples.LoopTaxpayers();
+        Samples.LoopTaxpayers();
         
         AppSettingsWriter.UpdateMainConnection();
 
