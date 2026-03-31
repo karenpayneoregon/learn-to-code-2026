@@ -7,6 +7,9 @@ public class GeneralHelpers
     public static void Example1()
     {
         string path = @"c:\temp\MyTest.txt";
+        
+        Directory.CreateDirectory("C:\\temp");
+        
         // This text is added only once to the file.
         if (!File.Exists(path))
         {
