@@ -1,4 +1,5 @@
 ﻿// ReSharper disable ConvertToUsingDeclaration
+// ReSharper disable MoveVariableDeclarationInsideLoopCondition
 namespace DebuggerLibrary;
 
 public class GeneralHelpers
@@ -30,10 +31,10 @@ public class GeneralHelpers
         // Open the file to read from.
         using (StreamReader sr = File.OpenText(path))
         {
-            string s = "";
-            while ((s = sr.ReadLine()) != null)
+            string line = "";
+            while ((line = sr.ReadLine()) != null)
             {
-                Console.WriteLine(s);
+                Console.WriteLine(line);
             }
         }
 
