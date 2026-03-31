@@ -12,7 +12,7 @@ internal partial class Program
 
         //Samples.Switch();
         
-        Samples.HitCount();
+        //Samples.HitCount();
 
         /*
          * for 'function breakpoint' GetSeasonColor in DebuggerLibrary/SeasonHelper.cs

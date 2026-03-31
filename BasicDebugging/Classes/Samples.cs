@@ -11,7 +11,8 @@ internal class Samples
     public static void Switch()
     {
         SpectreConsoleHelpers.PrintPink();
-        
+
+        [DebuggerStepThrough]  //  makes the debugger automatically step over this method
         List<string[]> ReadTransFromFile()
         {
             var items = new List<string[]>();
