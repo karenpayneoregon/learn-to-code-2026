@@ -13,3 +13,7 @@ taxpayer.Income > 77000m
 taxpayer.Income > 77000m taxpayer.Gender == "Female"
 
 ID: {taxpayer.Id, -5}, Income: {taxpayer.Income:C} ❌
+
+
+
+Processing taxpayer: {taxpayer.Id} {taxpayer.Income}
