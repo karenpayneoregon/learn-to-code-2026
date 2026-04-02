@@ -16,7 +16,7 @@ public partial class MainForm : Form
     /// </summary>
     /// <remarks>
     /// This field is initialized by reading the configuration from the appsettings.json file
-    /// using <see cref="DebuggerWatchesApp.Classes.Configuration.ConfigurationOperations.ReadConfiguration"/>.
+    /// using <see cref="ConfigurationOperations.ReadConfiguration"/>.
     /// It is used to manage and update application settings, such as connection strings.
     /// </remarks>
     private readonly Configuration configuration = ConfigurationOperations.ReadConfiguration();
