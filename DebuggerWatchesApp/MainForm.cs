@@ -47,6 +47,18 @@ public partial class MainForm : Form
             InitialCatalogFromConnectionString(DataConnections.Instance.MainConnection));
     }
 
+    /// <summary>
+    /// Extracts the initial catalog (database name) from a given SQL Server connection string.
+    /// </summary>
+    /// <param name="connectionString">
+    /// The connection string from which to extract the initial catalog.
+    /// </param>
+    /// <returns>
+    /// A string representing the initial catalog (database name) specified in the connection string.
+    /// </returns>
+    /// <remarks>
+    /// This method uses <see cref="SqlConnectionStringBuilder"/> to parse the connection string.
+    /// </remarks>
     public static string InitialCatalogFromConnectionString(string connectionString)
         => new SqlConnectionStringBuilder(connectionString).InitialCatalog;
 }
