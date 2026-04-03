@@ -28,24 +28,26 @@ partial class MainForm
     /// </summary>
     private void InitializeComponent()
     {
-        ReultsTextBox = new TextBox();
+        ResultsTextBox = new TextBox();
         GroupWorkDaysByWeekButton = new Button();
         DateTimeTryParseButton = new Button();
+        HolidaysButton = new Button();
         SuspendLayout();
         // 
-        // ReultsTextBox
+        // ResultsTextBox
         // 
-        ReultsTextBox.Dock = DockStyle.Bottom;
-        ReultsTextBox.Font = new Font("Courier New", 12F);
-        ReultsTextBox.Location = new Point(0, 275);
-        ReultsTextBox.Multiline = true;
-        ReultsTextBox.Name = "ReultsTextBox";
-        ReultsTextBox.Size = new Size(1122, 240);
-        ReultsTextBox.TabIndex = 0;
+        ResultsTextBox.Dock = DockStyle.Bottom;
+        ResultsTextBox.Font = new Font("Courier New", 12F);
+        ResultsTextBox.Location = new Point(0, 220);
+        ResultsTextBox.Multiline = true;
+        ResultsTextBox.Name = "ResultsTextBox";
+        ResultsTextBox.ScrollBars = ScrollBars.Both;
+        ResultsTextBox.Size = new Size(1122, 295);
+        ResultsTextBox.TabIndex = 0;
         // 
         // GroupWorkDaysByWeekButton
         // 
-        GroupWorkDaysByWeekButton.Location = new Point(12, 222);
+        GroupWorkDaysByWeekButton.Location = new Point(12, 164);
         GroupWorkDaysByWeekButton.Name = "GroupWorkDaysByWeekButton";
         GroupWorkDaysByWeekButton.Size = new Size(306, 29);
         GroupWorkDaysByWeekButton.TabIndex = 1;
@@ -63,14 +65,25 @@ partial class MainForm
         DateTimeTryParseButton.UseVisualStyleBackColor = true;
         DateTimeTryParseButton.Click += DateTimeTryParseButton_Click;
         // 
+        // HolidaysButton
+        // 
+        HolidaysButton.Location = new Point(341, 164);
+        HolidaysButton.Name = "HolidaysButton";
+        HolidaysButton.Size = new Size(306, 29);
+        HolidaysButton.TabIndex = 3;
+        HolidaysButton.Text = "Holidays";
+        HolidaysButton.UseVisualStyleBackColor = true;
+        HolidaysButton.Click += HolidaysButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1122, 515);
+        Controls.Add(HolidaysButton);
         Controls.Add(DateTimeTryParseButton);
         Controls.Add(GroupWorkDaysByWeekButton);
-        Controls.Add(ReultsTextBox);
+        Controls.Add(ResultsTextBox);
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Working with date/time";
@@ -80,7 +93,8 @@ partial class MainForm
 
     #endregion
 
-    private TextBox ReultsTextBox;
+    private TextBox ResultsTextBox;
     private Button GroupWorkDaysByWeekButton;
     private Button DateTimeTryParseButton;
+    private Button HolidaysButton;
 }

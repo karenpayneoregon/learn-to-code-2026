@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WorkingWithDatesAndTime.Data;
 
 namespace WorkingWithDatesAndTime.Classes;
 internal class Examples
@@ -45,4 +46,54 @@ internal class Examples
         
         return sb.ToString();
     }
+
+    /// <summary>
+    /// Retrieves a list of holidays for the current year from the database and formats them as a string.
+    /// </summary>
+    /// <returns>
+    /// A formatted string containing the holidays of the current year. Each holiday is displayed with its date
+    /// and description. Holidays in the current month are marked with an asterisk (*).
+    /// </returns>
+    /// <remarks>
+    /// This method queries the database using the <see cref="Context"/> class to fetch holidays for the current year.
+    /// If no holidays are found, the method returns a message indicating that no holidays are available.
+    /// </remarks>
+    public static string CurrentYearHolidays()
+    {
+        using var context = new Context();
+        var holidays = context.Calendar
+            .Where(c => c.Holiday && c.CalendarYear == DateTime.Now.Year)
+            .ToList();
+
+        var sb = new StringBuilder();
+
+        sb.AppendLine($"--- Holidays for {DateTime.Now.Year} ---");
+        sb.AppendLine();
+
+        if (holidays.Any())
+        {
+            var month = DateTime.Now.Month;
+
+            foreach (var holiday in holidays.OrderBy(h => h.CalendarDate))
+            {
+                if (holiday.CalendarMonth == month)
+                {
+                    sb.AppendLine($"{holiday.CalendarDate:MM/dd/yyyy}: {holiday.CalendarDateDescription}  *");
+                }
+                else
+                {
+                    sb.AppendLine($"{holiday.CalendarDate:MM/dd/yyyy}: {holiday.CalendarDateDescription}");
+                }
+            }
+        }
+        else
+        {
+            sb.AppendLine("No holidays found for the current year.");
+        }
+
+
+        return sb.ToString();
+
+    }
+
 }

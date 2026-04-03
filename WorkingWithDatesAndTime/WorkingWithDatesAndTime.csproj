@@ -15,6 +15,7 @@
 	<ItemGroup>
 		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
 		<PackageReference Include="ConsoleConfigurationLibrary" Version="1.0.0.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.18" />
 	</ItemGroup>
 
 	<!--<ItemGroup>
@@ -57,6 +58,9 @@
 
 	<ItemGroup>
 	  <None Update="appsettings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="DateTimeDatabase.db">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
