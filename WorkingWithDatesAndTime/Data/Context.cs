@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using EntityCoreFileLogger;
 using WorkingWithDatesAndTime.Classes.Configuration;
 using WorkingWithDatesAndTime.Models;
 using Microsoft.Extensions.Logging;
@@ -33,12 +34,20 @@ public partial class Context : DbContext
         // Enable sensitive data logging only in Development environment
         if (Debugger.IsAttached)
         {
+            //optionsBuilder
+            //    .EnableSensitiveDataLogging()
+            //    .LogTo(message => Debug.WriteLine(message),
+            //    [
+            //        DbLoggerCategory.Database.Command.Name
+            //    ], LogLevel.Information);
+
             optionsBuilder
                 .EnableSensitiveDataLogging()
-                .LogTo(message => Debug.WriteLine(message),
-                [
-                    DbLoggerCategory.Database.Command.Name
-                ], LogLevel.Information);
+                .LogTo(new DbContextToFileLogger().Log, new[]
+                    {
+                        DbLoggerCategory.Database.Command.Name
+                    },
+                    LogLevel.Information);
 
         }
 

@@ -15,6 +15,7 @@
 	<ItemGroup>
 		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
 		<PackageReference Include="ConsoleConfigurationLibrary" Version="1.0.0.2" />
+		<PackageReference Include="EntityCoreFileLogger" Version="1.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.18" />
 	</ItemGroup>
 
