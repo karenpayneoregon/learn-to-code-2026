@@ -28,6 +28,7 @@ partial class MainForm
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
         ChangeConnectionStringButton = new Button();
         ConnectionsListBox = new ListBox();
         CurrentButton = new Button();
@@ -70,7 +71,10 @@ partial class MainForm
         Controls.Add(CurrentButton);
         Controls.Add(ConnectionsListBox);
         Controls.Add(ChangeConnectionStringButton);
-        FormBorderStyle = FormBorderStyle.FixedToolWindow;
+        FormBorderStyle = FormBorderStyle.FixedDialog;
+        Icon = (Icon)resources.GetObject("$this.Icon");
+        MaximizeBox = false;
+        MinimizeBox = false;
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Watches";

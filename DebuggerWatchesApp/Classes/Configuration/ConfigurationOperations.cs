@@ -17,9 +17,10 @@ public class ConfigurationOperations
     public static Models.Configuration.Configuration ReadConfiguration()
     {
         var json = File.ReadAllText(FileName);
-        // Use System.Text.Json for deserialization.
+        
         return JsonSerializer.Deserialize<Models.Configuration.Configuration>(json)
                ?? throw new InvalidOperationException("Failed to deserialize configuration.");
+        
     }
 
     /// <summary>
@@ -28,9 +29,10 @@ public class ConfigurationOperations
     /// <param name="configuration">The configuration object to save.</param>
     public static void SaveChanges(Models.Configuration.Configuration configuration)
     {
-        // Use System.Text.Json for serialization.
+        
         var json = JsonSerializer.Serialize(configuration, Indented);
         File.WriteAllText(FileName, json);
+        
     }
 
     public static JsonSerializerOptions Indented => new() { WriteIndented = true };

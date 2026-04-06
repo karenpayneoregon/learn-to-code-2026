@@ -19,7 +19,7 @@ public partial class MainForm : Form
     /// using <see cref="ConfigurationOperations.ReadConfiguration"/>.
     /// It is used to manage and update application settings, such as connection strings.
     /// </remarks>
-    private readonly Configuration configuration = ConfigurationOperations.ReadConfiguration();
+    private readonly Configuration _configuration = ConfigurationOperations.ReadConfiguration();
     public MainForm()
     {
 
@@ -27,24 +27,23 @@ public partial class MainForm : Form
 
         ConnectionsListBox.SelectedIndex = 0;
 
-        DataConnections.Instance.MainConnection = configuration.ConnectionStrings.MainConnection;
+        DataConnections.Instance.MainConnection = _configuration.ConnectionStrings.MainConnection;
 
         Debugger.Break();
     }
 
     private void ChangeConnectionStringButton_Click(object sender, EventArgs e)
     {
-        configuration.ConnectionStrings.MainConnection = ConnectionsListBox.SelectedItem!.ToString();
-        ConfigurationOperations.SaveChanges(configuration);
-        DataConnections.Instance.MainConnection = configuration.ConnectionStrings.MainConnection;
+        _configuration.ConnectionStrings.MainConnection = ConnectionsListBox.SelectedItem!.ToString();
+        ConfigurationOperations.SaveChanges(_configuration);
+        DataConnections.Instance.MainConnection = _configuration.ConnectionStrings.MainConnection;
 
         Debugger.Break();
     }
 
     private void CurrentButton_Click(object sender, EventArgs e)
     {
-        Dialogs.Information(this, 
-            InitialCatalogFromConnectionString(DataConnections.Instance.MainConnection));
+        Dialogs.Information(this, InitialCatalogFromConnectionString(DataConnections.Instance.MainConnection));
     }
 
     /// <summary>

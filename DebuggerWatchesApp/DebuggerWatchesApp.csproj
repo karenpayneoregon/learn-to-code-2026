@@ -2,10 +2,19 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net8.0-windows</TargetFramework>
+		<TargetFramework>net9.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<ApplicationIcon>assets\Csharp.ico</ApplicationIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="assets\Csharp.ico" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<NoWarn>$(NoWarn);WFO5001</NoWarn>
 	</PropertyGroup>
 
 	<!--<ItemGroup>
@@ -20,7 +29,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Dapper" Version="2.1.35" />
+		<!--<PackageReference Include="Dapper" Version="2.1.35" />-->
 		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
 	</ItemGroup>
 
