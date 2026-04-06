@@ -17,6 +17,9 @@ internal class PersonOperations
     public static bool ShowInPlace => true;
     public static async Task<List<Person>> DisplayPeople()
     {
+
+        SpectreConsoleHelpers.PrintPink();
+        
         await using var context = new Context();
 
         var people = await context.People
@@ -77,6 +80,9 @@ internal class PersonOperations
 
     public static void WithDebugView()
     {
+
+        SpectreConsoleHelpers.PrintPink();
+        
         using var context = new Context();
         
         Person person = new Person()
@@ -117,10 +123,14 @@ internal class PersonOperations
         context.People.Add(person);
         
         var view = context.ChangeTracker.DebugView.LongView;
+        Console.WriteLine(view);
     }
     
     public static async Task<Person?> GetPerson(int id)
     {
+
+        SpectreConsoleHelpers.PrintPink();
+        
         await using var context = new Context();
 
         Person? person = await context.People
@@ -143,6 +153,9 @@ internal class PersonOperations
 
     private static async Task<List<PersonAddress>> GetPersonAddresses(int id)
     {
+
+        SpectreConsoleHelpers.PrintPink();
+        
         await using var context = new Context();
 
         List<PersonAddress> personAddresses = context.PersonAddresses
@@ -184,6 +197,9 @@ internal class PersonOperations
     /// </remarks>
     private static async Task<List<PersonDevice>> GetPersonDevices(int id)
     {
+
+        SpectreConsoleHelpers.PrintPink();
+        
         await using var context = new Context();
 
         List<PersonDevice> personDevices = await context.PersonDevices
