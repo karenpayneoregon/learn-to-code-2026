@@ -32,6 +32,8 @@ partial class MainForm
         GroupWorkDaysByWeekButton = new Button();
         DateTimeTryParseButton = new Button();
         HolidaysButton = new Button();
+        DeconstructButton = new Button();
+        TryParseExactButton = new Button();
         SuspendLayout();
         // 
         // ResultsTextBox
@@ -75,11 +77,33 @@ partial class MainForm
         HolidaysButton.UseVisualStyleBackColor = true;
         HolidaysButton.Click += HolidaysButton_Click;
         // 
+        // DeconstructButton
+        // 
+        DeconstructButton.Location = new Point(12, 56);
+        DeconstructButton.Name = "DeconstructButton";
+        DeconstructButton.Size = new Size(306, 29);
+        DeconstructButton.TabIndex = 4;
+        DeconstructButton.Text = "Deconstruct";
+        DeconstructButton.UseVisualStyleBackColor = true;
+        DeconstructButton.Click += DeconstructButton_Click;
+        // 
+        // TryParseExactButton
+        // 
+        TryParseExactButton.Location = new Point(341, 21);
+        TryParseExactButton.Name = "TryParseExactButton";
+        TryParseExactButton.Size = new Size(306, 29);
+        TryParseExactButton.TabIndex = 5;
+        TryParseExactButton.Text = "DateTime.TryParseExact";
+        TryParseExactButton.UseVisualStyleBackColor = true;
+        TryParseExactButton.Click += TryParseExactButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1122, 515);
+        Controls.Add(TryParseExactButton);
+        Controls.Add(DeconstructButton);
         Controls.Add(HolidaysButton);
         Controls.Add(DateTimeTryParseButton);
         Controls.Add(GroupWorkDaysByWeekButton);
@@ -97,4 +121,6 @@ partial class MainForm
     private Button GroupWorkDaysByWeekButton;
     private Button DateTimeTryParseButton;
     private Button HolidaysButton;
+    private Button DeconstructButton;
+    private Button TryParseExactButton;
 }
