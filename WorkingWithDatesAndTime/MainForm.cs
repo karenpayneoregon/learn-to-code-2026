@@ -189,7 +189,7 @@ public partial class MainForm : Form
         DateTimeUtilities dateTimeUtilities = new DateTimeUtilities();
         foreach (var input in testInputs)
         {
-            sb.AppendLine(dateTimeUtilities.GetDateFormat(input));
+            sb.AppendLine(DateTimeUtilities.GetDateFormat(input));
         }
         
         ResultsTextBox.Text = sb.ToString();

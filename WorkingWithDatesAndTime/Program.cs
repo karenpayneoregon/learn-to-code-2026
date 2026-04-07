@@ -25,5 +25,36 @@ internal static class Program
         await using var serviceProvider = services.BuildServiceProvider();
         serviceProvider.GetService<SetupServices>()!.GetConnectionStrings();
         serviceProvider.GetService<SetupServices>()!.GetEntitySettings();
+
+
+        CreateDailyLogDirectory();
+    }
+
+    /// <summary>
+    /// Creates a directory for daily log files based on the current date.
+    /// </summary>
+    /// <remarks>
+    /// The directory is created under the application's base directory in a folder named "LogFiles",
+    /// with a subfolder named after the current date in "yyyy-MM-dd" format.
+    /// If the directory already exists, no action is taken. Any exceptions during the creation process are ignored.
+    /// </remarks>
+    private static void CreateDailyLogDirectory()
+    {
+        string outDir = AppContext.BaseDirectory;
+
+        string logDir = Path.Combine(
+            outDir,
+            "LogFiles",
+            DateTime.Now.ToString("yyyy-MM-dd")
+        );
+
+        try
+        {
+            Directory.CreateDirectory(logDir);
+        }
+        catch (Exception)
+        {
+            // ignored
+        }
     }
 }
