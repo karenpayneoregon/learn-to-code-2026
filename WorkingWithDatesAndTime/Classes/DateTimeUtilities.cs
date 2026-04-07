@@ -36,7 +36,6 @@ internal class DateTimeUtilities
         {
             
             if (DateTime.TryParseExact(input, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out dateValue))
-            {
                 return $"Input: {input}, Format: {format}";
             }
             
