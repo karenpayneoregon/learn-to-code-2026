@@ -142,7 +142,8 @@ public partial class MainForm : Form
 
     private void OperatorsButton_Click(object sender, EventArgs e)
     {
-        ResultsTextBox.Text = Examples.DateEquality();
+        //ResultsTextBox.Text = Examples.DateEquality();
+        ResultsTextBox.Text = Examples.DateGreaterThan();
         ResultsTextBox.Focus();
         ResultsTextBox.DeselectAll();
     }

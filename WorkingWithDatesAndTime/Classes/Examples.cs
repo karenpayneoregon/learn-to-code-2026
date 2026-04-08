@@ -129,4 +129,26 @@ internal class Examples
         return sb.ToString();
     }
 
+    public static string DateGreaterThan()
+    {
+        var sb = new StringBuilder();
+
+        DateTime firstDate = new DateTime(2001, 4, 19);
+        DateTime otherDate = new DateTime(1991, 6, 5);
+
+        sb.AppendLine($"First date: {firstDate:G} Other date: {otherDate:G}");
+
+        bool isGreaterThan = firstDate > otherDate;
+        sb.AppendLine($"Is first date greater than other date? {isGreaterThan.ToYesNo()}");
+
+        otherDate = new DateTime(2001, 4, 19, 12, 0, 10); // Add time component
+
+        sb.AppendLine($"First date: {firstDate:G} Other date: {otherDate:G}");
+        isGreaterThan = firstDate > otherDate;
+        sb.AppendLine($"Is first date greater than other date? {isGreaterThan.ToYesNo()}");
+
+
+        return sb.ToString();
+    }
+
 }
