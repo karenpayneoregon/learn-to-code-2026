@@ -1,4 +1,5 @@
 
+using System.Diagnostics;
 using System.Text;
 using WorkingWithDatesAndTime.Classes;
 using WorkingWithDatesAndTime.Data;
@@ -89,110 +90,51 @@ public partial class MainForm : Form
     /// </summary>
     private void TryParseExactButton_Click(object sender, EventArgs e)
     {
-        List<string> testInputs =
-        [
-            "3/5/2024", // M/d/yyyy
-            "03/05/2024", // MM/dd/yyyy
-            "5/3/2024", // d/M/yyyy
-            "05/03/2024", // dd/MM/yyyy
-            "2024/3/5", // yyyy/M/d
-            "2024/03/05", // yyyy/MM/dd
 
-            // --- Valid: Dash formats ---
-            "3-5-2024", // M-d-yyyy
-            "03-05-2024", // MM-dd-yyyy
-            "5-3-2024", // d-M-yyyy
-            "05-03-2024", // dd-MM-yyyy
-            "2024-3-5", // yyyy-M-d
-            "2024-03-05", // yyyy-MM-dd
-
-            // --- Valid: Dot formats ---
-            "3.5.2024", // M.d.yyyy
-            "03.05.2024", // MM.dd.yyyy
-            "5.3.2024", // d.M.yyyy
-            "05.03.2024", // dd.MM.yyyy
-            "2024.3.5", // yyyy.M.d
-            "2024.03.05", // yyyy.MM.dd
-
-            // --- Valid: Space formats ---
-            "3 5 2024", // M d yyyy
-            "03 05 2024", // MM dd yyyy
-            "5 3 2024", // d M yyyy
-            "05 03 2024", // dd MM yyyy
-            "2024 3 5", // yyyy M d
-            "2024 03 05", // yyyy MM dd
-
-            // --- Valid: Comma formats ---
-            "3,5,2024", // M,d,yyyy
-            "03,05,2024", // MM,dd,yyyy
-            "5,3,2024", // d,M,yyyy
-            "05,03,2024", // dd,MM,yyyy
-            "2024,3,5", // yyyy,M,d
-            "2024,03,05", // yyyy,MM,dd
-
-            // --- Valid: Month name formats ---
-            "5-Jan-2024", // d-MMM-yyyy
-            "5/Jan/2024", // d/MMM/yyyy
-            "5 Jan 2024", // d MMM yyyy
-            "5.Jan.2024", // d.MMM.yyyy
-            "05-Jan-2024", // dd-MMM-yyyy
-            "05/Jan/2024", // dd/MMM/yyyy
-            "05 Jan 2024", // dd MMM yyyy
-            "05.Jan.2024", // dd.MMM.yyyy
-            "Jan/05/2024", // MMM/dd/yyyy
-            "Jan-05-2024", // MMM-dd-yyyy
-            "Jan 05 2024", // MMM dd yyyy
-            "Jan.05.2024", // MMM.dd.yyyy
-
-            // --- Valid: Short year ---
-            "5-Jan-4", // d-MMM-y
-            "5 Jan 4", // d MMM y
-
-            // --- Invalid: Completely wrong ---
-            "not a date",
-            "",
-            "   ",
-
-            // --- Invalid: Bad numbers ---
-            "32/01/2024", // invalid day
-            "13/32/2024", // invalid month/day combo
-            "2024/13/01", // invalid month
-            "2024-00-10", // invalid month
-            "2024-02-30", // invalid day for Feb
-
-            // --- Invalid: Wrong separators ---
-            "2024|03|05",
-            "05*03*2024",
-
-            // --- Invalid: Partial dates ---
-            "2024-03",
-            "03/2024",
-            "2024",
-
-            // --- Invalid: Mixed formats ---
-            "2024/03-05",
-            "Jan/2024/05",
-
-            // --- Edge cases ---
-            "2/29/2024", // valid leap year
-            "2/29/2023", // invalid (not leap year)
-            "02-29-2024", // valid
-            "02-29-2023", // invalid
-
-            // --- Case sensitivity check ---
-            "5-jan-2024", // fails (InvariantCulture expects proper casing)
-            "5-JAN-2024"
-        ];
-
+        var testInputs = MockedData.DateStrings;
         StringBuilder sb = new();
-        
+
         DateTimeUtilities dateTimeUtilities = new DateTimeUtilities();
         foreach (var input in testInputs)
         {
             sb.AppendLine(DateTimeUtilities.GetDateFormat(input));
         }
-        
+
         ResultsTextBox.Text = sb.ToString();
+        ResultsTextBox.Focus();
+        ResultsTextBox.DeselectAll();
+
+    }
+
+    /// <summary>
+    /// Converts a predefined <see cref="DateTime"/> value to Eastern Standard Time (EST)
+    /// and displays the result in the <see cref="ResultsTextBox"/>.
+    ///
+    /// https://learn.microsoft.com/en-us/dotnet/standard/datetime/converting-between-time-zones
+    /// 
+    /// </summary>
+    /// <remarks>
+    /// If the Eastern Standard Time zone is not found or its data is corrupted,
+    /// an appropriate error message is displayed in the <see cref="ResultsTextBox"/>.
+    /// </remarks>
+    private void ConvertToEasternButton_Click(object sender, EventArgs e)
+    {
+        DateTime easternTime = new DateTime(2026, 04, 02, 12, 16, 00);
+        string easternZoneId = "Eastern Standard Time";
+        try
+        {
+            TimeZoneInfo easternZone = TimeZoneInfo.FindSystemTimeZoneById(easternZoneId);
+            ResultsTextBox.Text = $"The date and time are {TimeZoneInfo.ConvertTimeToUtc(easternTime, easternZone)} UTC.";
+        }
+        catch (TimeZoneNotFoundException)
+        {
+            ResultsTextBox.Text = $"Unable to find the {easternZoneId} zone in the registry.";
+        }
+        catch (InvalidTimeZoneException)
+        {
+            ResultsTextBox.Text = $"Registry data on the {easternZoneId} zone has been corrupted.";
+        }
+
         ResultsTextBox.Focus();
         ResultsTextBox.DeselectAll();
         

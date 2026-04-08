@@ -34,6 +34,7 @@ partial class MainForm
         HolidaysButton = new Button();
         DeconstructButton = new Button();
         TryParseExactButton = new Button();
+        ConvertToEasternButton = new Button();
         SuspendLayout();
         // 
         // ResultsTextBox
@@ -97,11 +98,22 @@ partial class MainForm
         TryParseExactButton.UseVisualStyleBackColor = true;
         TryParseExactButton.Click += TryParseExactButton_Click;
         // 
+        // ConvertToEasternButton
+        // 
+        ConvertToEasternButton.Location = new Point(341, 56);
+        ConvertToEasternButton.Name = "ConvertToEasternButton";
+        ConvertToEasternButton.Size = new Size(306, 29);
+        ConvertToEasternButton.TabIndex = 6;
+        ConvertToEasternButton.Text = "Convert to eastern time";
+        ConvertToEasternButton.UseVisualStyleBackColor = true;
+        ConvertToEasternButton.Click += ConvertToEasternButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1122, 515);
+        Controls.Add(ConvertToEasternButton);
         Controls.Add(TryParseExactButton);
         Controls.Add(DeconstructButton);
         Controls.Add(HolidaysButton);
@@ -123,4 +135,5 @@ partial class MainForm
     private Button HolidaysButton;
     private Button DeconstructButton;
     private Button TryParseExactButton;
+    private Button ConvertToEasternButton;
 }
