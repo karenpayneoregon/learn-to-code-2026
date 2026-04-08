@@ -96,4 +96,37 @@ internal class Examples
 
     }
 
+    /// <summary>
+    /// Compares two <see cref="DateTime"/> objects for equality and returns the result as a formatted string.
+    /// </summary>
+    /// <returns>
+    /// A string containing the details of the two dates being compared, along with the result of the equality check.
+    /// </returns>
+    /// <remarks>
+    /// This method demonstrates the equality comparison of <see cref="DateTime"/> objects by comparing two dates.
+    /// It uses the <see cref="BoolExtensions.ToYesNo(bool)"/> extension method to format the comparison result
+    /// as "Yes" or "No".
+    /// </remarks>
+    public static string DateEquality()
+    {
+        var sb = new StringBuilder();
+
+        DateTime firstDate = new DateTime(2001, 4, 19);
+        DateTime otherDate = new DateTime(1991, 6, 5);
+        
+        sb.AppendLine($"First date: {firstDate:MM/dd/yyyy} Other date: {otherDate:MM/dd/yyyy}");
+
+        bool areEqual = firstDate == otherDate;
+        sb.AppendLine($"Are they equal? {areEqual.ToYesNo()}");
+
+        otherDate = new DateTime(2001, 4, 19);
+
+        sb.AppendLine($"First date: {firstDate:MM/dd/yyyy} Other date: {otherDate:MM/dd/yyyy}");
+        areEqual = firstDate == otherDate;
+        sb.AppendLine($"Are they equal? {areEqual.ToYesNo()}");
+
+
+        return sb.ToString();
+    }
+
 }

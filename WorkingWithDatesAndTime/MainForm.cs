@@ -137,7 +137,14 @@ public partial class MainForm : Form
 
         ResultsTextBox.Focus();
         ResultsTextBox.DeselectAll();
-        
+
+    }
+
+    private void OperatorsButton_Click(object sender, EventArgs e)
+    {
+        ResultsTextBox.Text = Examples.DateEquality();
+        ResultsTextBox.Focus();
+        ResultsTextBox.DeselectAll();
     }
 }
 

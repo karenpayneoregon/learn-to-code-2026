@@ -35,6 +35,7 @@ partial class MainForm
         DeconstructButton = new Button();
         TryParseExactButton = new Button();
         ConvertToEasternButton = new Button();
+        OperatorsButton = new Button();
         SuspendLayout();
         // 
         // ResultsTextBox
@@ -108,11 +109,22 @@ partial class MainForm
         ConvertToEasternButton.UseVisualStyleBackColor = true;
         ConvertToEasternButton.Click += ConvertToEasternButton_Click;
         // 
+        // OperatorsButton
+        // 
+        OperatorsButton.Location = new Point(663, 21);
+        OperatorsButton.Name = "OperatorsButton";
+        OperatorsButton.Size = new Size(306, 29);
+        OperatorsButton.TabIndex = 7;
+        OperatorsButton.Text = "Operators";
+        OperatorsButton.UseVisualStyleBackColor = true;
+        OperatorsButton.Click += OperatorsButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1122, 515);
+        Controls.Add(OperatorsButton);
         Controls.Add(ConvertToEasternButton);
         Controls.Add(TryParseExactButton);
         Controls.Add(DeconstructButton);
@@ -136,4 +148,5 @@ partial class MainForm
     private Button DeconstructButton;
     private Button TryParseExactButton;
     private Button ConvertToEasternButton;
+    private Button OperatorsButton;
 }
