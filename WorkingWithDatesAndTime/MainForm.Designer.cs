@@ -36,13 +36,17 @@ partial class MainForm
         TryParseExactButton = new Button();
         ConvertToEasternButton = new Button();
         OperatorsButton = new Button();
+        groupBox1 = new GroupBox();
+        EqualityRadioButton = new RadioButton();
+        GreaterThanRadioButton = new RadioButton();
+        groupBox1.SuspendLayout();
         SuspendLayout();
         // 
         // ResultsTextBox
         // 
         ResultsTextBox.Dock = DockStyle.Bottom;
         ResultsTextBox.Font = new Font("Courier New", 12F);
-        ResultsTextBox.Location = new Point(0, 220);
+        ResultsTextBox.Location = new Point(0, 379);
         ResultsTextBox.Multiline = true;
         ResultsTextBox.Name = "ResultsTextBox";
         ResultsTextBox.ScrollBars = ScrollBars.Both;
@@ -119,11 +123,45 @@ partial class MainForm
         OperatorsButton.UseVisualStyleBackColor = true;
         OperatorsButton.Click += OperatorsButton_Click;
         // 
+        // groupBox1
+        // 
+        groupBox1.Controls.Add(GreaterThanRadioButton);
+        groupBox1.Controls.Add(EqualityRadioButton);
+        groupBox1.Location = new Point(663, 66);
+        groupBox1.Name = "groupBox1";
+        groupBox1.Size = new Size(447, 225);
+        groupBox1.TabIndex = 8;
+        groupBox1.TabStop = false;
+        groupBox1.Text = "groupBox1";
+        // 
+        // EqualityRadioButton
+        // 
+        EqualityRadioButton.AutoSize = true;
+        EqualityRadioButton.Location = new Point(17, 37);
+        EqualityRadioButton.Name = "EqualityRadioButton";
+        EqualityRadioButton.Size = new Size(73, 24);
+        EqualityRadioButton.TabIndex = 0;
+        EqualityRadioButton.TabStop = true;
+        EqualityRadioButton.Text = "Equals";
+        EqualityRadioButton.UseVisualStyleBackColor = true;
+        // 
+        // GreaterThanRadioButton
+        // 
+        GreaterThanRadioButton.AutoSize = true;
+        GreaterThanRadioButton.Location = new Point(17, 76);
+        GreaterThanRadioButton.Name = "GreaterThanRadioButton";
+        GreaterThanRadioButton.Size = new Size(112, 24);
+        GreaterThanRadioButton.TabIndex = 1;
+        GreaterThanRadioButton.TabStop = true;
+        GreaterThanRadioButton.Text = "Greater than";
+        GreaterThanRadioButton.UseVisualStyleBackColor = true;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(1122, 515);
+        ClientSize = new Size(1122, 674);
+        Controls.Add(groupBox1);
         Controls.Add(OperatorsButton);
         Controls.Add(ConvertToEasternButton);
         Controls.Add(TryParseExactButton);
@@ -135,6 +173,8 @@ partial class MainForm
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Working with date/time";
+        groupBox1.ResumeLayout(false);
+        groupBox1.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -149,4 +189,7 @@ partial class MainForm
     private Button TryParseExactButton;
     private Button ConvertToEasternButton;
     private Button OperatorsButton;
+    private GroupBox groupBox1;
+    private RadioButton GreaterThanRadioButton;
+    private RadioButton EqualityRadioButton;
 }

@@ -1,5 +1,6 @@
 ﻿using BogusLibrary.Models;
 using System.Text.Json;
+using Serilog;
 
 namespace BasicObjectsExamples.Classes.Tuples;
 public class TupleSamples
@@ -32,6 +33,7 @@ public class TupleSamples
         }
         catch (Exception e)
         {
+            Log.Error(e,"An error occurred while reading the Users.json file.");
             return (e, null);
         }
     }

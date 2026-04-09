@@ -151,4 +151,111 @@ internal class Examples
         return sb.ToString();
     }
 
+    /// <summary>
+    /// Compares two <see cref="DateTime"/> objects for less than or equal to relationship and returns the result as a formatted string.
+    /// </summary>
+    /// <returns>
+    /// A string containing the details of the two dates being compared, along with the result of the less than or equal to check.
+    /// </returns>
+    /// <remarks>
+    /// This method demonstrates the less than or equal to comparison of <see cref="DateTime"/> objects by comparing two dates.
+    /// It uses the <see cref="BoolExtensions.ToYesNo(bool)"/> extension method to format the comparison result
+    /// as "Yes" or "No".
+    /// </remarks>
+    public static string DateLessThanOrEqual()
+    {
+        var sb = new StringBuilder();
+
+        DateTime firstDate = new DateTime(2001, 4, 19);
+        DateTime otherDate = new DateTime(1991, 6, 5);
+
+        sb.AppendLine($"First date: {firstDate:G} Other date: {otherDate:G}");
+
+        bool isLessThanOrEqual = firstDate <= otherDate;
+        sb.AppendLine($"Is first date less than or equal to other date? {isLessThanOrEqual.ToYesNo()}");
+
+        otherDate = new DateTime(2001, 4, 19); // Equal dates
+
+        sb.AppendLine($"First date: {firstDate:G} Other date: {otherDate:G}");
+        isLessThanOrEqual = firstDate <= otherDate;
+        sb.AppendLine($"Is first date less than or equal to other date? {isLessThanOrEqual.ToYesNo()}");
+
+        otherDate = new DateTime(2001, 4, 19, 12, 0, 10); // Other date is later
+
+        sb.AppendLine($"First date: {firstDate:G} Other date: {otherDate:G}");
+        isLessThanOrEqual = firstDate <= otherDate;
+        sb.AppendLine($"Is first date less than or equal to other date? {isLessThanOrEqual.ToYesNo()}");
+
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// Compares two <see cref="DateTime"/> objects for greater than or equal to relationship and returns the result as a formatted string.
+    /// </summary>
+    /// <returns>
+    /// A string containing the details of the two dates being compared, along with the result of the greater than or equal to check.
+    /// </returns>
+    /// <remarks>
+    /// This method demonstrates the greater than or equal to comparison of <see cref="DateTime"/> objects by comparing two dates.
+    /// It uses the <see cref="BoolExtensions.ToYesNo(bool)"/> extension method to format the comparison result
+    /// as "Yes" or "No".
+    /// </remarks>
+    public static string DateGreaterThanOrEqual()
+    {
+        var sb = new StringBuilder();
+
+        DateTime firstDate = new DateTime(2001, 4, 19);
+        DateTime otherDate = new DateTime(1991, 6, 5);
+
+        sb.AppendLine($"First date: {firstDate:G} Other date: {otherDate:G}");
+
+        bool isGreaterThanOrEqual = firstDate >= otherDate;
+        sb.AppendLine($"Is first date greater than or equal to other date? {isGreaterThanOrEqual.ToYesNo()}");
+
+        otherDate = new DateTime(2001, 4, 19); // Equal dates
+
+        sb.AppendLine($"First date: {firstDate:G} Other date: {otherDate:G}");
+        isGreaterThanOrEqual = firstDate >= otherDate;
+        sb.AppendLine($"Is first date greater than or equal to other date? {isGreaterThanOrEqual.ToYesNo()}");
+
+        otherDate = new DateTime(2001, 4, 19, 12, 0, 10); // Other date is later
+
+        sb.AppendLine($"First date: {firstDate:G} Other date: {otherDate:G}");
+        isGreaterThanOrEqual = firstDate >= otherDate;
+        sb.AppendLine($"Is first date greater than or equal to other date? {isGreaterThanOrEqual.ToYesNo()}");
+
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// Compares two <see cref="DateTime"/> objects for inequality and returns the result as a formatted string.
+    /// </summary>
+    /// <returns>
+    /// A string containing the details of the two dates being compared, along with the result of the inequality check.
+    /// </returns>
+    /// <remarks>
+    /// This method demonstrates the inequality comparison of <see cref="DateTime"/> objects by comparing two dates.
+    /// It uses the <see cref="BoolExtensions.ToYesNo(bool)"/> extension method to format the comparison result
+    /// as "Yes" or "No".
+    /// </remarks>
+    public static string DateInequality()
+    {
+        var sb = new StringBuilder();
+
+        DateTime firstDate = new DateTime(2001, 4, 19);
+        DateTime otherDate = new DateTime(1991, 6, 5);
+
+        sb.AppendLine($"First date: {firstDate:MM/dd/yyyy} Other date: {otherDate:MM/dd/yyyy}");
+
+        bool areNotEqual = firstDate != otherDate;
+        sb.AppendLine($"Are they not equal? {areNotEqual.ToYesNo()}");
+
+        otherDate = new DateTime(2001, 4, 19);
+
+        sb.AppendLine($"First date: {firstDate:MM/dd/yyyy} Other date: {otherDate:MM/dd/yyyy}");
+        areNotEqual = firstDate != otherDate;
+        sb.AppendLine($"Are they not equal? {areNotEqual.ToYesNo()}");
+
+        return sb.ToString();
+    }
 }
