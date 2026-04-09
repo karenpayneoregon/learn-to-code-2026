@@ -140,12 +140,34 @@ public partial class MainForm : Form
 
     }
 
+    /// <summary>
+    /// This method determines which radio button is selected within the <c>ExamplesGroupBox</c> 
+    /// and displays the corresponding example result in the <c>ResultsTextBox</c>. 
+    /// If no radio button is selected, it prompts the user to select an operator.
+    /// </summary>
     private void OperatorsButton_Click(object sender, EventArgs e)
     {
-        //ResultsTextBox.Text = Examples.DateEquality();
-        ResultsTextBox.Text = Examples.DateGreaterThan();
+        var selected = ExamplesGroupBox.RadioButtonChecked();
+        if (selected is null)
+        {
+            ResultsTextBox.Text = "Please select an operator to see the example.";
+            ResultsTextBox.Focus();
+            ResultsTextBox.DeselectAll();
+            return;
+        }
+        
+        ResultsTextBox.Text = selected.Name switch
+        {
+            nameof(EqualityRadioButton) => Examples.DateEquality(),
+            nameof(GreaterThanRadioButton) => Examples.DateGreaterThan(),
+            nameof(LessThanOrEqualRadioButton) => Examples.DateLessThanOrEqual(),
+            nameof(AddSubtractRadioButton) => Examples.DateAddSubtract(),
+            _ => ""
+        };
+
         ResultsTextBox.Focus();
         ResultsTextBox.DeselectAll();
+        
     }
 }
 

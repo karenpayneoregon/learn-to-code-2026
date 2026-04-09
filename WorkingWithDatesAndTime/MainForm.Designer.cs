@@ -36,10 +36,12 @@ partial class MainForm
         TryParseExactButton = new Button();
         ConvertToEasternButton = new Button();
         OperatorsButton = new Button();
-        groupBox1 = new GroupBox();
-        EqualityRadioButton = new RadioButton();
+        ExamplesGroupBox = new GroupBox();
+        AddSubtractRadioButton = new RadioButton();
+        LessThanOrEqualRadioButton = new RadioButton();
         GreaterThanRadioButton = new RadioButton();
-        groupBox1.SuspendLayout();
+        EqualityRadioButton = new RadioButton();
+        ExamplesGroupBox.SuspendLayout();
         SuspendLayout();
         // 
         // ResultsTextBox
@@ -123,27 +125,40 @@ partial class MainForm
         OperatorsButton.UseVisualStyleBackColor = true;
         OperatorsButton.Click += OperatorsButton_Click;
         // 
-        // groupBox1
+        // ExamplesGroupBox
         // 
-        groupBox1.Controls.Add(GreaterThanRadioButton);
-        groupBox1.Controls.Add(EqualityRadioButton);
-        groupBox1.Location = new Point(663, 66);
-        groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(447, 225);
-        groupBox1.TabIndex = 8;
-        groupBox1.TabStop = false;
-        groupBox1.Text = "groupBox1";
+        ExamplesGroupBox.Controls.Add(AddSubtractRadioButton);
+        ExamplesGroupBox.Controls.Add(LessThanOrEqualRadioButton);
+        ExamplesGroupBox.Controls.Add(GreaterThanRadioButton);
+        ExamplesGroupBox.Controls.Add(EqualityRadioButton);
+        ExamplesGroupBox.Location = new Point(663, 66);
+        ExamplesGroupBox.Name = "ExamplesGroupBox";
+        ExamplesGroupBox.Size = new Size(447, 225);
+        ExamplesGroupBox.TabIndex = 8;
+        ExamplesGroupBox.TabStop = false;
+        ExamplesGroupBox.Text = "Examples";
         // 
-        // EqualityRadioButton
+        // AddSubtractRadioButton
         // 
-        EqualityRadioButton.AutoSize = true;
-        EqualityRadioButton.Location = new Point(17, 37);
-        EqualityRadioButton.Name = "EqualityRadioButton";
-        EqualityRadioButton.Size = new Size(73, 24);
-        EqualityRadioButton.TabIndex = 0;
-        EqualityRadioButton.TabStop = true;
-        EqualityRadioButton.Text = "Equals";
-        EqualityRadioButton.UseVisualStyleBackColor = true;
+        AddSubtractRadioButton.AutoSize = true;
+        AddSubtractRadioButton.Location = new Point(229, 37);
+        AddSubtractRadioButton.Name = "AddSubtractRadioButton";
+        AddSubtractRadioButton.Size = new Size(119, 24);
+        AddSubtractRadioButton.TabIndex = 3;
+        AddSubtractRadioButton.TabStop = true;
+        AddSubtractRadioButton.Text = "Add/Subtract";
+        AddSubtractRadioButton.UseVisualStyleBackColor = true;
+        // 
+        // LessThanOrEqualRadioButton
+        // 
+        LessThanOrEqualRadioButton.AutoSize = true;
+        LessThanOrEqualRadioButton.Location = new Point(17, 117);
+        LessThanOrEqualRadioButton.Name = "LessThanOrEqualRadioButton";
+        LessThanOrEqualRadioButton.Size = new Size(154, 24);
+        LessThanOrEqualRadioButton.TabIndex = 2;
+        LessThanOrEqualRadioButton.TabStop = true;
+        LessThanOrEqualRadioButton.Text = "Less Than Or Equal";
+        LessThanOrEqualRadioButton.UseVisualStyleBackColor = true;
         // 
         // GreaterThanRadioButton
         // 
@@ -156,12 +171,23 @@ partial class MainForm
         GreaterThanRadioButton.Text = "Greater than";
         GreaterThanRadioButton.UseVisualStyleBackColor = true;
         // 
+        // EqualityRadioButton
+        // 
+        EqualityRadioButton.AutoSize = true;
+        EqualityRadioButton.Location = new Point(17, 37);
+        EqualityRadioButton.Name = "EqualityRadioButton";
+        EqualityRadioButton.Size = new Size(73, 24);
+        EqualityRadioButton.TabIndex = 0;
+        EqualityRadioButton.TabStop = true;
+        EqualityRadioButton.Text = "Equals";
+        EqualityRadioButton.UseVisualStyleBackColor = true;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1122, 674);
-        Controls.Add(groupBox1);
+        Controls.Add(ExamplesGroupBox);
         Controls.Add(OperatorsButton);
         Controls.Add(ConvertToEasternButton);
         Controls.Add(TryParseExactButton);
@@ -173,8 +199,8 @@ partial class MainForm
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Working with date/time";
-        groupBox1.ResumeLayout(false);
-        groupBox1.PerformLayout();
+        ExamplesGroupBox.ResumeLayout(false);
+        ExamplesGroupBox.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -189,7 +215,9 @@ partial class MainForm
     private Button TryParseExactButton;
     private Button ConvertToEasternButton;
     private Button OperatorsButton;
-    private GroupBox groupBox1;
+    private GroupBox ExamplesGroupBox;
     private RadioButton GreaterThanRadioButton;
     private RadioButton EqualityRadioButton;
+    private RadioButton LessThanOrEqualRadioButton;
+    private RadioButton AddSubtractRadioButton;
 }

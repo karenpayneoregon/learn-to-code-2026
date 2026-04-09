@@ -1,10 +1,5 @@
 ﻿using CommonHelpersLibrary.Classes;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using WorkingWithDatesAndTime.Data;
 
 namespace WorkingWithDatesAndTime.Classes;
@@ -129,6 +124,19 @@ internal class Examples
         return sb.ToString();
     }
 
+    /// <summary>
+    /// Compares two <see cref="DateTime"/> values to determine if one is greater than the other
+    /// and returns the result as a formatted string.
+    /// </summary>
+    /// <returns>
+    /// A string containing the details of the comparison, including the values of the two dates
+    /// and whether the first date is greater than the second date.
+    /// </returns>
+    /// <remarks>
+    /// This method demonstrates the use of the greater-than operator (<c>&gt;</c>) for comparing
+    /// <see cref="DateTime"/> values. It also includes an example where the time component of a
+    /// <see cref="DateTime"/> is considered during the comparison.
+    /// </remarks>
     public static string DateGreaterThan()
     {
         var sb = new StringBuilder();
@@ -256,6 +264,88 @@ internal class Examples
         areNotEqual = firstDate != otherDate;
         sb.AppendLine($"Are they not equal? {areNotEqual.ToYesNo()}");
 
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// Demonstrates the addition and subtraction of days, months, and years to/from specific dates.
+    /// </summary>
+    /// <returns>
+    /// A formatted string containing examples of date manipulations, including adding days, months, and years,
+    /// as well as subtracting days and years from given dates.
+    /// </returns>
+    /// <remarks>
+    /// This method showcases the use of <see cref="DateTime.AddDays(double)"/>, <see cref="DateTime.AddMonths(int)"/>, 
+    /// and <see cref="DateTime.AddYears(int)"/> methods to perform various date arithmetic operations.
+    /// </remarks>
+    public static string DateAddSubtract()
+    {
+        var sb = new StringBuilder();
+
+        DateTime firstDate = new DateTime(2001, 4, 19);
+        DateTime otherDate = new DateTime(1991, 6, 5);
+
+        sb.AppendLine($"First date: {firstDate:G} Other date: {otherDate:G}");
+
+        // Add 5 days to firstDate
+        DateTime addedDate = firstDate.AddDays(5);
+        sb.AppendLine($"First date + 5 days: {addedDate:G}");
+
+        // Subtract 10 days from otherDate
+        DateTime subtractedDate = otherDate.AddDays(-10);
+        sb.AppendLine($"Other date - 10 days: {subtractedDate:G}");
+
+        // Add 2 months to firstDate
+        DateTime addedMonths = firstDate.AddMonths(2);
+        sb.AppendLine($"First date + 2 months: {addedMonths:G}");
+
+        // Subtract 3 years from otherDate
+        DateTime subtractedYears = otherDate.AddYears(-3);
+        sb.AppendLine($"Other date - 3 years: {subtractedYears:G}");
+
+        // Add 1 year and 3 months to firstDate
+        DateTime addedComplex = firstDate.AddYears(1).AddMonths(3);
+        sb.AppendLine($"First date + 1 year and 3 months: {addedComplex:G}");
+
+        return sb.ToString();
+    }
+
+    public static string DateAddMethod()
+    {
+        var sb = new StringBuilder();
+
+        DateTime date = new(2001, 4, 19);
+
+        sb.AppendLine($"Original date: {date:G}");
+
+        // Add 5 days to the date
+        DateTime addedDays = date.AddDays(5);
+        sb.AppendLine($"Date after adding 5 days: {addedDays:G}");
+
+        // Add 2 months to the date
+        DateTime addedMonths = date.AddMonths(2);
+        sb.AppendLine($"Date after adding 2 months: {addedMonths:G}");
+
+        // Add 1 year to the date
+        DateTime addedYears = date.AddYears(1);
+        sb.AppendLine($"Date after adding 1 year: {addedYears:G}");
+
+        // Add 1 year and 3 months to the date
+        DateTime addedComplex = date
+            .AddYears(1)
+            .AddMonths(3);
+        sb.AppendLine($"Date after adding 1 year and 3 months: {addedComplex:G}");
+
+        // Add 365 days to the date (equivalent to a year, but accounts for leap years)
+        DateTime addedDaysEquivalentToYear = date.AddDays(365);
+        sb.AppendLine($"Date after adding 365 days: {addedDaysEquivalentToYear:G}");
+
+
+        // Calculate what day of the week is 36 days from this instant.
+        DateTime today = DateTime.Now;
+        TimeSpan duration = new TimeSpan(36, 0, 0, 0);
+        DateTime answer = today.Add(duration);
+        sb.AppendLine($"36 days from today ({today:MMMM dd, yyyy}) is a {answer:dddd}.");
         return sb.ToString();
     }
 }
