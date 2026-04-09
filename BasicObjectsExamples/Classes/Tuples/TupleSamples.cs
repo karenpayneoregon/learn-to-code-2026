@@ -33,7 +33,7 @@ public class TupleSamples
         }
         catch (Exception e)
         {
-            Log.Error(e,"An error occurred while reading the Users.json file.");
+            Log.Error(e,$"{nameof(TupleSamples)}.{nameof(ReadUsersFromFile)}: An error occurred while reading Users.json");
             return (e, null);
         }
     }
