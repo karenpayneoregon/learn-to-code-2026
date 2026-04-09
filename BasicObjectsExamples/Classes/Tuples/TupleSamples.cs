@@ -25,15 +25,30 @@ public class TupleSamples
     /// </remarks>
     public static (Exception exception, List<User> users) ReadUsersFromFile()
     {
+        const string fileName = "Users.json";
+
         try
         {
-            var json = File.ReadAllText("Users.json");
+            if (!File.Exists(fileName))
+            {
+                var fnf = new FileNotFoundException($"{fileName} not found.", fileName);
+                
+                Log.Error(fnf, "{Class}.{Method}: {FileName} not found", 
+                    nameof(TupleSamples), nameof(ReadUsersFromFile), fileName);
+                
+                return (fnf, null);
+            }
+            
+            var json = File.ReadAllText(fileName);
             var users = JsonSerializer.Deserialize<List<User>>(json, Options);
+            
             return (null, users);
         }
         catch (Exception e)
         {
-            Log.Error(e,$"{nameof(TupleSamples)}.{nameof(ReadUsersFromFile)}: An error occurred while reading Users.json");
+            Log.Error(e, "{Class}.{Method}: An error occurred while reading {FileName}", 
+                nameof(TupleSamples), nameof(ReadUsersFromFile), fileName);
+            
             return (e, null);
         }
     }
