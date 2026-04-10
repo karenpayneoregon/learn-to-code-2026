@@ -121,7 +121,7 @@ partial class MainForm
         OperatorsButton.Name = "OperatorsButton";
         OperatorsButton.Size = new Size(306, 29);
         OperatorsButton.TabIndex = 7;
-        OperatorsButton.Text = "Operators";
+        OperatorsButton.Text = "Operators/Methods";
         OperatorsButton.UseVisualStyleBackColor = true;
         OperatorsButton.Click += OperatorsButton_Click;
         // 

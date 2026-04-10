@@ -1,10 +1,34 @@
-﻿using CommonHelpersLibrary.Classes;
+﻿using System.Globalization;
+using CommonHelpersLibrary.Classes;
 using System.Text;
 using WorkingWithDatesAndTime.Data;
 
 namespace WorkingWithDatesAndTime.Classes;
 internal class Examples
 {
+
+    /// <summary>
+    /// Retrieves a list of leap years within a predefined range.
+    /// </summary>
+    /// <returns>
+    /// A list of integers representing the leap years between 2000 and 2026, inclusive.
+    /// </returns>
+    /// <remarks>
+    /// This method uses the <see cref="DateTime.IsLeapYear(int)"/> method to determine whether a year is a leap year.
+    /// </remarks>
+    public static List<int> GetLeapYearsOnly() =>
+        Enumerable.Range(2000, 27)
+            .Where(DateTime.IsLeapYear)
+            .ToList();
+
+    /// <summary>
+    /// Retrieves and processes dates for the current month, including weekend dates and workdays.
+    /// </summary>
+    /// <remarks>
+    /// This method utilizes the <see cref="CommonHelpersLibrary.Classes.DateHelper.GetWeekendDates(int, int)"/> 
+    /// and <see cref="CommonHelpersLibrary.Classes.DateHelper.GetWorkDays(int, int)"/> methods to identify 
+    /// weekend dates (Saturdays and Sundays) and workdays (Monday through Friday) for the current month.
+    /// </remarks>
     private static void GetDatesForCurrentMonth()
     {
         List<DateOnly> weekendDates = DateHelper.GetWeekendDates(DateTime.Now.Year, DateTime.Now.Month);
@@ -32,13 +56,13 @@ internal class Examples
         var end = new DateOnly(year, month, 30);
 
         Dictionary<DateOnly, List<DateOnly>> result = DateHelper.GetWorkDaysGroupedByWeek(start, end);
-        
+
         StringBuilder sb = new();
         foreach (var (dateOnly, value) in result)
         {
             sb.AppendLine($"Week starting {dateOnly:MM/dd/yyyy}: {string.Join(", ", value)}");
         }
-        
+
         return sb.ToString();
     }
 
@@ -108,7 +132,7 @@ internal class Examples
 
         DateTime firstDate = new DateTime(2001, 4, 19);
         DateTime otherDate = new DateTime(1991, 6, 5);
-        
+
         sb.AppendLine($"First date: {firstDate:MM/dd/yyyy} Other date: {otherDate:MM/dd/yyyy}");
 
         bool areEqual = firstDate == otherDate;
@@ -310,6 +334,19 @@ internal class Examples
         return sb.ToString();
     }
 
+    /// <summary>
+    /// Demonstrates the addition of various time intervals (days, months, years) to a specific date
+    /// and provides formatted results.
+    /// </summary>
+    /// <returns>
+    /// A formatted string that includes the original date and the results of adding different 
+    /// time intervals (e.g., days, months, years) to it.
+    /// </returns>
+    /// <remarks>
+    /// This method showcases the usage of <see cref="DateTime.AddDays(double)"/>, 
+    /// <see cref="DateTime.AddMonths(int)"/>, <see cref="DateTime.AddYears(int)"/>, 
+    /// and <see cref="DateTime.Add(TimeSpan)"/> methods to manipulate dates.
+    /// </remarks>
     public static string DateAddMethod()
     {
         var sb = new StringBuilder();
@@ -340,12 +377,56 @@ internal class Examples
         DateTime addedDaysEquivalentToYear = date.AddDays(365);
         sb.AppendLine($"Date after adding 365 days: {addedDaysEquivalentToYear:G}");
 
-
         // Calculate what day of the week is 36 days from this instant.
         DateTime today = DateTime.Now;
         TimeSpan duration = new TimeSpan(36, 0, 0, 0);
         DateTime answer = today.Add(duration);
+        
         sb.AppendLine($"36 days from today ({today:MMMM dd, yyyy}) is a {answer:dddd}.");
+        
         return sb.ToString();
+    }
+
+    /// <summary>
+    /// Generates a formatted string displaying the number of days in each month
+    /// for specified years, based on the current culture and calendar.
+    /// </summary>
+    /// <returns>
+    /// A string containing a table-like format where each row represents a year and month,
+    /// along with the corresponding number of days in that month.
+    /// </returns>
+    /// <remarks>
+    /// This method uses the <see cref="DateTime.DaysInMonth(int, int)"/> method to calculate
+    /// the number of days in each month for the given years. The output is formatted
+    /// according to the current culture and calendar.
+    /// </remarks>
+    public static string DaysInMonth()
+    {
+        var sb = new StringBuilder();
+
+        int[] years = [2025, 2026];
+        
+        DateTimeFormatInfo info = DateTimeFormatInfo.CurrentInfo;
+        
+        sb.AppendLine($"Days in the Month for the {CultureInfo.CurrentCulture.Name} culture " + 
+                      $"using the {info.Calendar.GetType().Name.Replace("Calendar", "")} calendar\n");
+        
+        sb.Append($"{"Year",-10}{"Month",-15}{"Days",4}").AppendLine();
+
+        foreach (var year in years)
+        {
+            for (int month = 0; month <= info.MonthNames.Length - 1; month++)
+            {
+                if (string.IsNullOrEmpty(info.MonthNames[month])) continue;
+
+                sb.AppendLine($"{year,-10}{info.MonthNames[month],-15}{DateTime.DaysInMonth(year, month + 1),4}");
+            }
+
+            sb.AppendLine();
+            
+        }
+        
+        return sb.ToString();
+        
     }
 }

@@ -13,7 +13,16 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
+        
+        Shown += MainForm_Shown;
 
+    }
+
+    private void MainForm_Shown(object? sender, EventArgs e)
+    {
+        ResultsTextBox.Text = Examples.DaysInMonth();
+        ResultsTextBox.Focus();
+        ResultsTextBox.DeselectAll();
     }
 
     private void DateTimeTryParseButton_Click(object sender, EventArgs e)
