@@ -415,6 +415,17 @@ internal static class Examples
         
     }
 
+    /// <summary>
+    /// Demonstrates various ways to format a <see cref="DateTime"/> object into different string representations.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="string"/> containing examples of formatted date and time values using standard and custom format specifiers.
+    /// </returns>
+    /// <remarks>
+    /// This method showcases the use of standard date and time format strings (e.g., "d", "D", "f", "F", "g", etc.)
+    /// as well as custom format strings (e.g., "yyyy-MM-dd HH:mm:ss", "ddd, MMM d, yyyy", etc.).
+    /// It also includes examples of extracting specific components like the month, day, and year.
+    /// </remarks>
     public static string FormatDateTimeExamples()
     {
 
@@ -422,6 +433,29 @@ internal static class Examples
         
         var date = new DateTime(2026, 6, 15, 14, 30, 45);
 
+        sb.AppendLine($"Original date: {date:G}");
+        sb.AppendLine($"Date in short date format: {date:d}");
+        sb.AppendLine($"Date in long date format: {date:D}");
+        sb.AppendLine($"Date and time in short format: {date:f}");
+        sb.AppendLine($"Date and time in long format: {date:F}");
+        sb.AppendLine($"Date and time in general format: {date:g}");
+        sb.AppendLine($"Date and time in general (short time) format: {date:G}");
+        sb.AppendLine($"Month and day format: {date:m}");
+        sb.AppendLine($"Month and year format: {date:y}");
+        sb.AppendLine($"Custom format (yyyy-MM-dd HH:mm:ss): {date:yyyy-MM-dd HH:mm:ss}");
+        sb.AppendLine($"Custom format (ddd, MMM d, yyyy): {date:ddd, MMM d, yyyy}");
+        sb.AppendLine($"Custom format (h:mm tt): {date:h:mm tt}");
+        sb.AppendLine($"Abbreviated month name: {date:MMM}");
+        sb.AppendLine($"Full month name: {date:MMMM}");
+        sb.AppendLine($"Abbreviated day name: {date:ddd}");
+        sb.AppendLine($"Full day name: {date:dddd}");
+        sb.AppendLine($"Two-digit day: {date:dd}");
+        sb.AppendLine($"Two-digit month: {date:MM}");
+        sb.AppendLine($"Four-digit year: {date:yyyy}");
+        sb.AppendLine($"Two-digit year: {date:yy}");
+        sb.AppendLine($"AM/PM marker: {date:t}"); // Equivalent to 'tt' for AM/PM
+        sb.AppendLine($"AM/PM marker (long): {date:tt}");
+        
         return sb.ToString();
 
     }

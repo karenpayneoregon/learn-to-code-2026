@@ -42,6 +42,7 @@ partial class MainForm
         GreaterThanRadioButton = new RadioButton();
         EqualityRadioButton = new RadioButton();
         GreetingLabel = new Label();
+        FormatDatesRadioButton = new RadioButton();
         ExamplesGroupBox.SuspendLayout();
         SuspendLayout();
         // 
@@ -128,6 +129,7 @@ partial class MainForm
         // 
         // ExamplesGroupBox
         // 
+        ExamplesGroupBox.Controls.Add(FormatDatesRadioButton);
         ExamplesGroupBox.Controls.Add(AddSubtractRadioButton);
         ExamplesGroupBox.Controls.Add(LessThanOrEqualRadioButton);
         ExamplesGroupBox.Controls.Add(GreaterThanRadioButton);
@@ -192,6 +194,17 @@ partial class MainForm
         GreetingLabel.TabIndex = 9;
         GreetingLabel.Text = "label1";
         // 
+        // FormatDatesRadioButton
+        // 
+        FormatDatesRadioButton.AutoSize = true;
+        FormatDatesRadioButton.Location = new Point(231, 76);
+        FormatDatesRadioButton.Name = "FormatDatesRadioButton";
+        FormatDatesRadioButton.Size = new Size(145, 24);
+        FormatDatesRadioButton.TabIndex = 10;
+        FormatDatesRadioButton.TabStop = true;
+        FormatDatesRadioButton.Text = "Standard formats";
+        FormatDatesRadioButton.UseVisualStyleBackColor = true;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
@@ -232,4 +245,5 @@ partial class MainForm
     private RadioButton LessThanOrEqualRadioButton;
     private RadioButton AddSubtractRadioButton;
     private Label GreetingLabel;
+    private RadioButton FormatDatesRadioButton;
 }

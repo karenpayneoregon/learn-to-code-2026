@@ -185,6 +185,7 @@ public partial class MainForm : Form
             nameof(GreaterThanRadioButton) => Examples.DateGreaterThan(),
             nameof(LessThanOrEqualRadioButton) => Examples.DateLessThanOrEqual(),
             nameof(AddSubtractRadioButton) => Examples.DateAddSubtract(),
+            nameof(FormatDatesRadioButton) => Examples.FormatDateTimeExamples(),
             _ => ""
         };
 
