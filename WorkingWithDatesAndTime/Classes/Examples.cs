@@ -4,23 +4,8 @@ using System.Text;
 using WorkingWithDatesAndTime.Data;
 
 namespace WorkingWithDatesAndTime.Classes;
-internal class Examples
+internal static class Examples
 {
-
-    /// <summary>
-    /// Retrieves a list of leap years within a predefined range.
-    /// </summary>
-    /// <returns>
-    /// A list of integers representing the leap years between 2000 and 2026, inclusive.
-    /// </returns>
-    /// <remarks>
-    /// This method uses the <see cref="DateTime.IsLeapYear(int)"/> method to determine whether a year is a leap year.
-    /// </remarks>
-    public static List<int> GetLeapYearsOnly() =>
-        Enumerable.Range(2000, 27)
-            .Where(DateTime.IsLeapYear)
-            .ToList();
-
     /// <summary>
     /// Retrieves and processes dates for the current month, including weekend dates and workdays.
     /// </summary>
@@ -135,7 +120,7 @@ internal class Examples
 
         sb.AppendLine($"First date: {firstDate:MM/dd/yyyy} Other date: {otherDate:MM/dd/yyyy}");
 
-        bool areEqual = firstDate == otherDate;
+        bool areEqual = firstDate.Equals(otherDate);
         sb.AppendLine($"Are they equal? {areEqual.ToYesNo()}");
 
         otherDate = new DateTime(2001, 4, 19);
@@ -429,6 +414,31 @@ internal class Examples
         return sb.ToString();
         
     }
+
+    public static string FormatDateTimeExamples()
+    {
+
+        var sb = new StringBuilder();
+        
+        var date = new DateTime(2026, 6, 15, 14, 30, 45);
+
+        return sb.ToString();
+
+    }
+    
+    /// <summary>
+    /// Retrieves a list of leap years within a predefined range.
+    /// </summary>
+    /// <returns>
+    /// A list of integers representing the leap years between 2000 and 2026, inclusive.
+    /// </returns>
+    /// <remarks>
+    /// This method uses the <see cref="DateTime.IsLeapYear(int)"/> method to determine whether a year is a leap year.
+    /// </remarks>
+    public static List<int> GetLeapYearsOnly() =>
+        Enumerable.Range(2000, 27)
+            .Where(DateTime.IsLeapYear)
+            .ToList();
 
     /// <summary>
     /// Generates a greeting message based on the specified date and time.
