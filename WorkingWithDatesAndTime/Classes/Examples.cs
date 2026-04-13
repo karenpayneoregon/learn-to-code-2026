@@ -425,6 +425,9 @@ internal static class Examples
     /// This method showcases the use of standard date and time format strings (e.g., "d", "D", "f", "F", "g", etc.)
     /// as well as custom format strings (e.g., "yyyy-MM-dd HH:mm:ss", "ddd, MMM d, yyyy", etc.).
     /// It also includes examples of extracting specific components like the month, day, and year.
+    ///
+    /// Microsoft documentation on date and time format strings can be found at:
+    /// https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
     /// </remarks>
     public static string FormatDateTimeExamples()
     {
