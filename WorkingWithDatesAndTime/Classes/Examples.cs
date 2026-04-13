@@ -429,4 +429,28 @@ internal class Examples
         return sb.ToString();
         
     }
+
+    /// <summary>
+    /// Generates a greeting message based on the specified date and time.
+    /// </summary>
+    /// <param name="dateTime">The <see cref="DateTime"/> object representing the date and time for which the greeting is generated.</param>
+    /// <returns>
+    /// A string containing a day-specific greeting message. For example, "Happy Monday!" for Monday or "Enjoy your Saturday!" for Saturday.
+    /// </returns>
+    /// <remarks>
+    /// The method evaluates the <see cref="DateTime.DayOfWeek"/> property of the provided <paramref name="dateTime"/>
+    /// to determine the appropriate greeting message.
+    /// </remarks>
+    public static string GetGreeting(DateTime dateTime) =>
+        dateTime.DayOfWeek switch
+        {
+            DayOfWeek.Monday => "Happy Monday!",
+            DayOfWeek.Tuesday => "Happy Tuesday!",
+            DayOfWeek.Wednesday => "Happy Wednesday!",
+            DayOfWeek.Thursday => "Happy Thursday!",
+            DayOfWeek.Friday => "Happy Friday!",
+            DayOfWeek.Saturday => "Enjoy your Saturday!",
+            DayOfWeek.Sunday => "Relax, it's Sunday!",
+            _ => "Hello!"
+        };
 }

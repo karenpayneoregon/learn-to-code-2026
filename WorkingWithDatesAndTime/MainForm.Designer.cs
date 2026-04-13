@@ -41,6 +41,7 @@ partial class MainForm
         LessThanOrEqualRadioButton = new RadioButton();
         GreaterThanRadioButton = new RadioButton();
         EqualityRadioButton = new RadioButton();
+        GreetingLabel = new Label();
         ExamplesGroupBox.SuspendLayout();
         SuspendLayout();
         // 
@@ -57,7 +58,7 @@ partial class MainForm
         // 
         // GroupWorkDaysByWeekButton
         // 
-        GroupWorkDaysByWeekButton.Location = new Point(12, 164);
+        GroupWorkDaysByWeekButton.Location = new Point(12, 183);
         GroupWorkDaysByWeekButton.Name = "GroupWorkDaysByWeekButton";
         GroupWorkDaysByWeekButton.Size = new Size(306, 29);
         GroupWorkDaysByWeekButton.TabIndex = 1;
@@ -67,7 +68,7 @@ partial class MainForm
         // 
         // DateTimeTryParseButton
         // 
-        DateTimeTryParseButton.Location = new Point(12, 21);
+        DateTimeTryParseButton.Location = new Point(12, 40);
         DateTimeTryParseButton.Name = "DateTimeTryParseButton";
         DateTimeTryParseButton.Size = new Size(306, 29);
         DateTimeTryParseButton.TabIndex = 2;
@@ -77,7 +78,7 @@ partial class MainForm
         // 
         // HolidaysButton
         // 
-        HolidaysButton.Location = new Point(341, 164);
+        HolidaysButton.Location = new Point(341, 183);
         HolidaysButton.Name = "HolidaysButton";
         HolidaysButton.Size = new Size(306, 29);
         HolidaysButton.TabIndex = 3;
@@ -87,7 +88,7 @@ partial class MainForm
         // 
         // DeconstructButton
         // 
-        DeconstructButton.Location = new Point(12, 56);
+        DeconstructButton.Location = new Point(12, 75);
         DeconstructButton.Name = "DeconstructButton";
         DeconstructButton.Size = new Size(306, 29);
         DeconstructButton.TabIndex = 4;
@@ -97,7 +98,7 @@ partial class MainForm
         // 
         // TryParseExactButton
         // 
-        TryParseExactButton.Location = new Point(341, 21);
+        TryParseExactButton.Location = new Point(341, 40);
         TryParseExactButton.Name = "TryParseExactButton";
         TryParseExactButton.Size = new Size(306, 29);
         TryParseExactButton.TabIndex = 5;
@@ -107,7 +108,7 @@ partial class MainForm
         // 
         // ConvertToEasternButton
         // 
-        ConvertToEasternButton.Location = new Point(341, 56);
+        ConvertToEasternButton.Location = new Point(341, 75);
         ConvertToEasternButton.Name = "ConvertToEasternButton";
         ConvertToEasternButton.Size = new Size(306, 29);
         ConvertToEasternButton.TabIndex = 6;
@@ -117,7 +118,7 @@ partial class MainForm
         // 
         // OperatorsButton
         // 
-        OperatorsButton.Location = new Point(663, 21);
+        OperatorsButton.Location = new Point(663, 40);
         OperatorsButton.Name = "OperatorsButton";
         OperatorsButton.Size = new Size(306, 29);
         OperatorsButton.TabIndex = 7;
@@ -131,7 +132,7 @@ partial class MainForm
         ExamplesGroupBox.Controls.Add(LessThanOrEqualRadioButton);
         ExamplesGroupBox.Controls.Add(GreaterThanRadioButton);
         ExamplesGroupBox.Controls.Add(EqualityRadioButton);
-        ExamplesGroupBox.Location = new Point(663, 66);
+        ExamplesGroupBox.Location = new Point(663, 85);
         ExamplesGroupBox.Name = "ExamplesGroupBox";
         ExamplesGroupBox.Size = new Size(447, 225);
         ExamplesGroupBox.TabIndex = 8;
@@ -182,11 +183,21 @@ partial class MainForm
         EqualityRadioButton.Text = "Equals";
         EqualityRadioButton.UseVisualStyleBackColor = true;
         // 
+        // GreetingLabel
+        // 
+        GreetingLabel.AutoSize = true;
+        GreetingLabel.Location = new Point(12, 9);
+        GreetingLabel.Name = "GreetingLabel";
+        GreetingLabel.Size = new Size(50, 20);
+        GreetingLabel.TabIndex = 9;
+        GreetingLabel.Text = "label1";
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1122, 674);
+        Controls.Add(GreetingLabel);
         Controls.Add(ExamplesGroupBox);
         Controls.Add(OperatorsButton);
         Controls.Add(ConvertToEasternButton);
@@ -220,4 +231,5 @@ partial class MainForm
     private RadioButton EqualityRadioButton;
     private RadioButton LessThanOrEqualRadioButton;
     private RadioButton AddSubtractRadioButton;
+    private Label GreetingLabel;
 }

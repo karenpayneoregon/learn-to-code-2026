@@ -23,6 +23,9 @@ public partial class MainForm : Form
         ResultsTextBox.Text = Examples.DaysInMonth();
         ResultsTextBox.Focus();
         ResultsTextBox.DeselectAll();
+
+        GreetingLabel.Text = Examples.GetGreeting(DateTime.Now);
+        
     }
 
     private void DateTimeTryParseButton_Click(object sender, EventArgs e)
@@ -63,8 +66,19 @@ public partial class MainForm : Form
     {
 
         {
+            var year = DateTime.Now.Year;
+            var month = DateTime.Now.Month;
+            var day = DateTime.Now.Day;
+        }
+        
+        {
             // https://learn.microsoft.com/en-us/dotnet/api/system.datetime.deconstruct?view=net-8.0
             var ((year, month, day), (hour, minute, second)) = DateTime.Now;
+        }
+
+        {
+            // https://learn.microsoft.com/en-us/dotnet/api/system.datetime.deconstruct?view=net-8.0
+            var (year, month, day) = DateTime.Now;
         }
 
         {
