@@ -16,8 +16,6 @@ namespace JsonCommentsSample.Classes.Configuration;
 /// </remarks>
 public abstract class DefaultConverterFactory<TBase> : JsonConverterFactory
 {
-    // Adapted from this answer https://stackoverflow.com/a/78512783/3744182
-    // To https://stackoverflow.com/questions/78507408/in-system-text-json-is-it-possible-to-minify-only-array-items
     class DefaultConverter<TConcrete> : JsonConverter<TConcrete> where TConcrete : TBase
     {
         readonly JsonSerializerOptions modifiedOptions;
