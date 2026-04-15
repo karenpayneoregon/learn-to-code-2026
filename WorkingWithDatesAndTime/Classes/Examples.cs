@@ -16,8 +16,11 @@ internal static class Examples
     /// </remarks>
     private static void GetDatesForCurrentMonth()
     {
-        List<DateOnly> weekendDates = DateHelper.GetWeekendDates(DateTime.Now.Year, DateTime.Now.Month);
-        List<DateOnly> workDays = DateHelper.GetWorkDays(DateTime.Now.Year, DateTime.Now.Month);
+        List<DateOnly> weekendDates = DateHelper
+            .GetWeekendDates(DateTime.Now.Year, DateTime.Now.Month);
+
+        List<DateOnly> workDays = DateHelper
+            .GetWorkDays(DateTime.Now.Year, DateTime.Now.Month);
     }
 
     /// <summary>
@@ -40,7 +43,8 @@ internal static class Examples
         var start = new DateOnly(year, month, 1);
         var end = new DateOnly(year, month, 30);
 
-        Dictionary<DateOnly, List<DateOnly>> result = DateHelper.GetWorkDaysGroupedByWeek(start, end);
+        Dictionary<DateOnly, List<DateOnly>> result = 
+            DateHelper.GetWorkDaysGroupedByWeek(start, end);
 
         StringBuilder sb = new();
         foreach (var (dateOnly, value) in result)
@@ -164,6 +168,8 @@ internal static class Examples
         isGreaterThan = firstDate > otherDate;
         sb.AppendLine($"Is first date greater than other date? {isGreaterThan.ToYesNo()}");
 
+        int result = DateTime.Compare(firstDate, otherDate);
+        sb.AppendLine($"Comparison result using DateTime.Compare: {result}");
 
         return sb.ToString();
     }
@@ -402,7 +408,8 @@ internal static class Examples
         {
             for (int month = 0; month <= info.MonthNames.Length - 1; month++)
             {
-                if (string.IsNullOrEmpty(info.MonthNames[month])) continue;
+                if (string.IsNullOrEmpty(info.MonthNames[month])) 
+                    continue;
 
                 sb.AppendLine($"{year,-10}{info.MonthNames[month],-15}{DateTime.DaysInMonth(year, month + 1),4}");
             }
