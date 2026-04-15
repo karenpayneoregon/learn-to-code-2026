@@ -34,7 +34,7 @@ public class JsonCommentConverter<TBase>(string comment) : DefaultConverterFacto
     protected override void Write<T>(Utf8JsonWriter writer, T value, JsonSerializerOptions modifiedOptions)
     {
         var json = JsonSerializer.Serialize(value, modifiedOptions);
-        writer.WriteRawValue(json + _commentWithDelimiters, skipInputValidation: true);
+        writer.WriteRawValue($"{json}{_commentWithDelimiters}", skipInputValidation: true);
     }
 
     protected override JsonSerializerOptions ModifyOptions(JsonSerializerOptions options)

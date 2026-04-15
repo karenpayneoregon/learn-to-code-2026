@@ -67,5 +67,5 @@ public abstract class DefaultConverterFactory<TBase> : JsonConverterFactory
         }
     }
 
-    public override bool CanConvert(Type typeToConvert) { return typeof(TBase).IsAssignableFrom(typeToConvert); }
+    public override bool CanConvert(Type typeToConvert) => typeof(TBase).IsAssignableFrom(typeToConvert);
 }
