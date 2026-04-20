@@ -37,12 +37,13 @@ partial class MainForm
         ConvertToEasternButton = new Button();
         OperatorsButton = new Button();
         ExamplesGroupBox = new GroupBox();
+        FormatDatesRadioButton = new RadioButton();
         AddSubtractRadioButton = new RadioButton();
         LessThanOrEqualRadioButton = new RadioButton();
         GreaterThanRadioButton = new RadioButton();
         EqualityRadioButton = new RadioButton();
         GreetingLabel = new Label();
-        FormatDatesRadioButton = new RadioButton();
+        RawStringLiteralButton = new RadioButton();
         ExamplesGroupBox.SuspendLayout();
         SuspendLayout();
         // 
@@ -129,6 +130,7 @@ partial class MainForm
         // 
         // ExamplesGroupBox
         // 
+        ExamplesGroupBox.Controls.Add(RawStringLiteralButton);
         ExamplesGroupBox.Controls.Add(FormatDatesRadioButton);
         ExamplesGroupBox.Controls.Add(AddSubtractRadioButton);
         ExamplesGroupBox.Controls.Add(LessThanOrEqualRadioButton);
@@ -140,6 +142,17 @@ partial class MainForm
         ExamplesGroupBox.TabIndex = 8;
         ExamplesGroupBox.TabStop = false;
         ExamplesGroupBox.Text = "Examples";
+        // 
+        // FormatDatesRadioButton
+        // 
+        FormatDatesRadioButton.AutoSize = true;
+        FormatDatesRadioButton.Location = new Point(231, 76);
+        FormatDatesRadioButton.Name = "FormatDatesRadioButton";
+        FormatDatesRadioButton.Size = new Size(145, 24);
+        FormatDatesRadioButton.TabIndex = 10;
+        FormatDatesRadioButton.TabStop = true;
+        FormatDatesRadioButton.Text = "Standard formats";
+        FormatDatesRadioButton.UseVisualStyleBackColor = true;
         // 
         // AddSubtractRadioButton
         // 
@@ -194,16 +207,16 @@ partial class MainForm
         GreetingLabel.TabIndex = 9;
         GreetingLabel.Text = "label1";
         // 
-        // FormatDatesRadioButton
+        // RawStringLiteralButton
         // 
-        FormatDatesRadioButton.AutoSize = true;
-        FormatDatesRadioButton.Location = new Point(231, 76);
-        FormatDatesRadioButton.Name = "FormatDatesRadioButton";
-        FormatDatesRadioButton.Size = new Size(145, 24);
-        FormatDatesRadioButton.TabIndex = 10;
-        FormatDatesRadioButton.TabStop = true;
-        FormatDatesRadioButton.Text = "Standard formats";
-        FormatDatesRadioButton.UseVisualStyleBackColor = true;
+        RawStringLiteralButton.AutoSize = true;
+        RawStringLiteralButton.Location = new Point(231, 117);
+        RawStringLiteralButton.Name = "RawStringLiteralButton";
+        RawStringLiteralButton.Size = new Size(141, 24);
+        RawStringLiteralButton.TabIndex = 10;
+        RawStringLiteralButton.TabStop = true;
+        RawStringLiteralButton.Text = "Raw string literal";
+        RawStringLiteralButton.UseVisualStyleBackColor = true;
         // 
         // MainForm
         // 
@@ -246,4 +259,5 @@ partial class MainForm
     private RadioButton AddSubtractRadioButton;
     private Label GreetingLabel;
     private RadioButton FormatDatesRadioButton;
+    private RadioButton RawStringLiteralButton;
 }

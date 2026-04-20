@@ -507,4 +507,25 @@ internal static class Examples
             DayOfWeek.Sunday => "Relax, it's Sunday!",
             _ => "Hello!"
         };
+
+    /// <summary>
+    /// Generates a raw string literal containing a personalized greeting message.
+    /// </summary>
+    /// <returns>
+    /// A raw string literal that includes the user's name and the current date, 
+    /// along with a day-specific greeting message.
+    /// </returns>
+    /// <remarks>
+    /// The method uses a raw string literal to format the output, incorporating the 
+    /// current user's name (<see cref="Environment.UserName"/>) and the current date 
+    /// (<see cref="DateTime.Now"/>). It also calls the <see cref="GetGreeting(DateTime)"/> 
+    /// method to include a greeting based on the current day of the week.
+    /// </remarks>
+    public static string RawStringLiteral()
+    {
+        return $"""
+                Hello {Environment.UserName} on {DateTime.Now:MMMM dd, yyyy}!
+                {GetGreeting(DateTime.Now)}
+                """;
+    }
 }
