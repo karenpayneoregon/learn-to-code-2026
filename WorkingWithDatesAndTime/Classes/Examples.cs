@@ -528,4 +528,48 @@ internal static class Examples
                 {GetGreeting(DateTime.Now)}
                 """;
     }
+
+    /// <summary>
+    /// Demonstrates working with time zones by creating a <see cref="DateTimeOffset"/> instance
+    /// using a specific date, time, and time zone.
+    /// </summary>
+    /// <remarks>
+    /// This method initializes a <see cref="DateTime"/> object with a specific date and time,
+    /// retrieves the Pacific Standard Time zone using <see cref="TimeZoneInfo.FindSystemTimeZoneById(string)"/>,
+    /// and calculates the UTC offset for the given date and time. The result is used to create
+    /// a <see cref="DateTimeOffset"/> instance.
+    /// </remarks>
+    public static string PacificTimeZone()
+    {
+        var dt =  DateTime.Now;
+
+        var pacificZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time");
+
+        var pacificOffset = new DateTimeOffset(dt, pacificZone.GetUtcOffset(dt));
+        
+        return pacificOffset.ToString("yyyy-MM-dd HH:mm:ss zzz");
+    }
+
+    /// <summary>
+    /// Retrieves the current date and time in the Eastern Time Zone as a formatted string.
+    /// </summary>
+    /// <returns>
+    /// A string representing the current date and time in the "Eastern Standard Time" zone,
+    /// formatted as "yyyy-MM-dd HH:mm:ss zzz".
+    /// </returns>
+    /// <remarks>
+    /// This method uses the <see cref="TimeZoneInfo.FindSystemTimeZoneById(string)"/> method
+    /// to obtain the "Eastern Standard Time" zone and converts the current time to this time zone
+    /// using <see cref="TimeZoneInfo.ConvertTime(DateTimeOffset, TimeZoneInfo)"/>.
+    /// </remarks>
+    public static string EasternTimeZone()
+    {
+        var dt = DateTime.Now;
+        // safer: start with a DateTimeOffset and convert to Eastern time
+        var nowDto = DateTimeOffset.Now;
+        var eastern = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+        var easternTime = TimeZoneInfo.ConvertTime(nowDto, eastern);
+        return easternTime.ToString("yyyy-MM-dd HH:mm:ss zzz");
+
+    }
 }

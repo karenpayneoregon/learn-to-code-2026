@@ -37,13 +37,15 @@ partial class MainForm
         ConvertToEasternButton = new Button();
         OperatorsButton = new Button();
         ExamplesGroupBox = new GroupBox();
+        RawStringLiteralButton = new RadioButton();
         FormatDatesRadioButton = new RadioButton();
         AddSubtractRadioButton = new RadioButton();
         LessThanOrEqualRadioButton = new RadioButton();
         GreaterThanRadioButton = new RadioButton();
         EqualityRadioButton = new RadioButton();
         GreetingLabel = new Label();
-        RawStringLiteralButton = new RadioButton();
+        PacificTimeZoneLabel = new Label();
+        EasternTimeZoneLabel = new Label();
         ExamplesGroupBox.SuspendLayout();
         SuspendLayout();
         // 
@@ -143,6 +145,17 @@ partial class MainForm
         ExamplesGroupBox.TabStop = false;
         ExamplesGroupBox.Text = "Examples";
         // 
+        // RawStringLiteralButton
+        // 
+        RawStringLiteralButton.AutoSize = true;
+        RawStringLiteralButton.Location = new Point(231, 117);
+        RawStringLiteralButton.Name = "RawStringLiteralButton";
+        RawStringLiteralButton.Size = new Size(141, 24);
+        RawStringLiteralButton.TabIndex = 10;
+        RawStringLiteralButton.TabStop = true;
+        RawStringLiteralButton.Text = "Raw string literal";
+        RawStringLiteralButton.UseVisualStyleBackColor = true;
+        // 
         // FormatDatesRadioButton
         // 
         FormatDatesRadioButton.AutoSize = true;
@@ -207,22 +220,31 @@ partial class MainForm
         GreetingLabel.TabIndex = 9;
         GreetingLabel.Text = "label1";
         // 
-        // RawStringLiteralButton
+        // PacificTimeZoneLabel
         // 
-        RawStringLiteralButton.AutoSize = true;
-        RawStringLiteralButton.Location = new Point(231, 117);
-        RawStringLiteralButton.Name = "RawStringLiteralButton";
-        RawStringLiteralButton.Size = new Size(141, 24);
-        RawStringLiteralButton.TabIndex = 10;
-        RawStringLiteralButton.TabStop = true;
-        RawStringLiteralButton.Text = "Raw string literal";
-        RawStringLiteralButton.UseVisualStyleBackColor = true;
+        PacificTimeZoneLabel.AutoSize = true;
+        PacificTimeZoneLabel.Location = new Point(12, 304);
+        PacificTimeZoneLabel.Name = "PacificTimeZoneLabel";
+        PacificTimeZoneLabel.Size = new Size(154, 20);
+        PacificTimeZoneLabel.TabIndex = 10;
+        PacificTimeZoneLabel.Text = "PacificTimeZoneLabel";
+        // 
+        // EasternTimeZoneLabel
+        // 
+        EasternTimeZoneLabel.AutoSize = true;
+        EasternTimeZoneLabel.Location = new Point(12, 334);
+        EasternTimeZoneLabel.Name = "EasternTimeZoneLabel";
+        EasternTimeZoneLabel.Size = new Size(160, 20);
+        EasternTimeZoneLabel.TabIndex = 11;
+        EasternTimeZoneLabel.Text = "EasternTimeZoneLabel";
         // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1122, 674);
+        Controls.Add(EasternTimeZoneLabel);
+        Controls.Add(PacificTimeZoneLabel);
         Controls.Add(GreetingLabel);
         Controls.Add(ExamplesGroupBox);
         Controls.Add(OperatorsButton);
@@ -260,4 +282,6 @@ partial class MainForm
     private Label GreetingLabel;
     private RadioButton FormatDatesRadioButton;
     private RadioButton RawStringLiteralButton;
+    private Label PacificTimeZoneLabel;
+    private Label EasternTimeZoneLabel;
 }

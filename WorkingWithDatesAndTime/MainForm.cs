@@ -25,7 +25,9 @@ public partial class MainForm : Form
         ResultsTextBox.DeselectAll();
 
         GreetingLabel.Text = Examples.GetGreeting(DateTime.Now);
-        
+        PacificTimeZoneLabel.Text = $"Date as DateTimeOffset: {Examples.PacificTimeZone()}";
+        EasternTimeZoneLabel.Text = $"Date as DateTimeOffset: {Examples.EasternTimeZone()}";
+
     }
 
     private void DateTimeTryParseButton_Click(object sender, EventArgs e)
