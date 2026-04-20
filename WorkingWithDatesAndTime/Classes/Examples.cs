@@ -86,11 +86,11 @@ internal static class Examples
             {
                 if (holiday.CalendarMonth == month)
                 {
-                    sb.AppendLine($"{holiday.CalendarDate:MM/dd/yyyy}: {holiday.CalendarDateDescription}  *");
+                    sb.AppendLine($"{holiday.CalendarDate:MM/dd/yyyy}: {holiday.CalendarDateDescription} {holiday.Weekend.IsWeekend()}  *");
                 }
                 else
                 {
-                    sb.AppendLine($"{holiday.CalendarDate:MM/dd/yyyy}: {holiday.CalendarDateDescription}");
+                    sb.AppendLine($"{holiday.CalendarDate:MM/dd/yyyy}: {holiday.CalendarDateDescription} {holiday.Weekend.IsWeekend()}");
                 }
             }
         }

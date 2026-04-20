@@ -178,7 +178,11 @@ public partial class MainForm : Form
             ResultsTextBox.DeselectAll();
             return;
         }
-        
+
+        /*
+         * switch against the Name property of the selected radio button
+         * to determine which example to display in the ResultsTextBox.
+         */
         ResultsTextBox.Text = selected.Name switch
         {
             nameof(EqualityRadioButton) => Examples.DateEquality(),
