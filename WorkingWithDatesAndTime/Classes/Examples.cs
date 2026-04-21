@@ -18,19 +18,22 @@ internal static class Examples
     /// </remarks>
     public static void Types()
     {
-        DateTime now = DateTime.Now;
+        // Extracting the day component from the current date and time using deconstruction
+        var (_, _, day) = DateTime.Now;
+        Debug.WriteLine(day);
+        
         DateTime utcNow = DateTime.UtcNow;
         DateTime today = DateTime.Today;
         DateTime specificDate = new DateTime(2025, 12, 25);
         DateTime dateAndTime = new DateTime(2025, 12, 25, 10, 30, 0);
         
-        DateTimeOffset dateTimeOffset = new DateTimeOffset(2025, 12, 25, 10, 30, 0, TimeSpan.FromHours(-5));
+        DateTimeOffset dateTimeOffset = new DateTimeOffset(2025, 12, 25, 10, 30, 0, 
+            TimeSpan.FromHours(-5));
         
         DateOnly dateOnly = new DateOnly(2025, 12, 25);
         TimeOnly timeOnly = new TimeOnly(10, 30, 0);
         
         TimeSpan timeSpan = new TimeSpan(1, 30, 0); // 1 hour and 30 minutes
-
     }
 
     /// <summary>

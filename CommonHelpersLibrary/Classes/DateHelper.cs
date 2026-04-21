@@ -143,4 +143,29 @@ public static class DateHelper
         return results;
     }
 
+    /// <summary>
+    /// Calculates the number of business days (Monday through Friday) between two specified dates.
+    /// </summary>
+    /// <param name="start">The start date of the range.</param>
+    /// <param name="end">The end date of the range (exclusive).</param>
+    /// <returns>The total number of business days between the specified dates.</returns>
+    /// <exception cref="ArgumentException">
+    /// Thrown if <paramref name="end"/> is earlier than <paramref name="start"/>.
+    /// </exception>
+    /// <remarks>
+    /// This method excludes weekends (Saturdays and Sundays) from the count of business days.
+    /// </remarks>
+    public static int GetBusinessDays(DateTime start, DateTime end)
+    {
+        int businessDays = 0;
+        for (var date = start; date < end; date = date.AddDays(1))
+        {
+            if (date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday)
+            {
+                businessDays++;
+            }
+        }
+        return businessDays;
+    }
+
 }
