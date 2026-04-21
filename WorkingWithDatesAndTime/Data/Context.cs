@@ -29,7 +29,8 @@ public partial class Context : DbContext
     {
         if (optionsBuilder.IsConfigured) return;
 
-        optionsBuilder.UseSqlite(DataConnections.Instance.MainConnection);
+        var connectionString = DataConnections.Instance.MainConnection; 
+        optionsBuilder.UseSqlite(connectionString);
 
         // Enable sensitive data logging only in Development environment
         if (Debugger.IsAttached)

@@ -1,7 +1,92 @@
-﻿namespace CommonHelpersLibrary.LanguageExtensions;
+﻿using System.Globalization;
+
+namespace CommonHelpersLibrary.LanguageExtensions;
 
 public static class DateExtensions
 {
+
+    /// <summary>
+    /// Adds the specified number of weeks to the given <see cref="DateTime"/> instance.
+    /// </summary>
+    /// <param name="dateTime">The <see cref="DateTime"/> instance to which the weeks will be added.</param>
+    /// <param name="numberOfWeeks">The number of weeks to add. Can be positive or negative.</param>
+    /// <returns>A new <see cref="DateTime"/> instance that is the result of adding the specified number of weeks to the original date.</returns>
+    public static DateTime AddWeeks(this DateTime dateTime, int numberOfWeeks)
+    {
+        var (year, month, day) = dateTime;
+        DateTime dt = new DateTime(year, month, day, new GregorianCalendar());
+        Calendar cal = CultureInfo.InvariantCulture.Calendar;
+        return cal.AddWeeks(dt, numberOfWeeks);
+    }
+
+    public static DateTime AddWeeks1(this DateTime dateTime, int numberOfWeeks)
+        => dateTime.AddDays(numberOfWeeks * 7);
+
+    /// <summary>
+    /// Adds the specified number of business days to the given <see cref="DateTime"/> instance.
+    /// </summary>
+    /// <param name="dateTime">The <see cref="DateTime"/> instance to which the business days will be added.</param>
+    /// <param name="days">The number of business days to add. Can be positive or negative.</param>
+    /// <returns>A new <see cref="DateTime"/> instance that is the result of adding the specified number of business days to the original date.</returns>
+    /// <remarks>
+    /// Business days are considered as Monday through Friday. Weekends (Saturday and Sunday) are skipped.
+    /// </remarks>
+    public static DateTime AddBusinessDays(this DateTime dateTime, int days)
+    {
+        if (days == 0)
+            return dateTime;
+
+        int direction = days > 0 ? 1 : -1;
+
+        // Move full weeks
+        int absDays = Math.Abs(days);
+        int fullWeeks = absDays / 5;
+        dateTime = dateTime.AddDays(fullWeeks * 7 * direction);
+
+        int remainingDays = absDays % 5;
+
+        while (remainingDays > 0)
+        {
+            dateTime = dateTime.AddDays(direction);
+
+            if (dateTime.DayOfWeek is not DayOfWeek.Saturday and not DayOfWeek.Sunday)
+            {
+                remainingDays--;
+            }
+        }
+
+        return dateTime;
+    }
+    
+    /// <summary>
+    /// Adds the specified number of business days to the given <see cref="DateOnly"/> instance.
+    /// </summary>
+    /// <param name="date">The <see cref="DateOnly"/> instance to which the business days will be added.</param>
+    /// <param name="days">The number of business days to add. Can be positive or negative.</param>
+    /// <returns>A new <see cref="DateOnly"/> instance that is the result of adding the specified number of business days to the original date.</returns>
+    /// <remarks>
+    /// Business days are considered as Monday through Friday. Weekends (Saturday and Sunday) are skipped.
+    /// </remarks>
+    public static DateOnly AddBusinessDays(this DateOnly date, int days)
+    {
+        int fullWeeks = days / 5;
+        date = date.AddDays(fullWeeks * 7);
+
+        int remainingDays = days % 5;
+
+        for (int index = 0; index < remainingDays; index++)
+        {
+            date = date.DayOfWeek switch
+            {
+                DayOfWeek.Friday => date.AddDays(3),
+                DayOfWeek.Saturday => date.AddDays(2),
+                _ => date.AddDays(1)
+            };
+        }
+
+        return date;
+    }
+
     /// <summary>
     /// Calculates the age based on the provided date of birth.
     /// </summary>

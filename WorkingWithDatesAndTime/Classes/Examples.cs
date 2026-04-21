@@ -2,6 +2,7 @@
 using System.Globalization;
 using CommonHelpersLibrary.Classes;
 using System.Text;
+using CommonHelpersLibrary.LanguageExtensions;
 using WorkingWithDatesAndTime.Data;
 
 namespace WorkingWithDatesAndTime.Classes;
@@ -533,7 +534,7 @@ internal static class Examples
         dateTime.DayOfWeek switch
         {
             DayOfWeek.Monday => "Happy Monday!",
-            DayOfWeek.Tuesday => "Happy Tuesday!",
+            DayOfWeek.Tuesday => "Taco Tuesday!",
             DayOfWeek.Wednesday => "Happy Wednesday!",
             DayOfWeek.Thursday => "Happy Thursday!",
             DayOfWeek.Friday => "Happy Friday!",
@@ -666,5 +667,17 @@ internal static class Examples
             .OrderByDescending(x => x.CalendarYear)
             .Where(x => x.CalendarYear == 2099)
             .ToList();
+    }
+
+    public static string AddWeeksExample()
+    {
+        var sb = new StringBuilder();
+
+        var dateTime = DateTime.Now;
+
+        sb.AppendLine($"startDate.AddWeeks(-1) {dateTime.AddWeeks(-1):MM/dd/yyyy}");
+        sb.AppendLine($" startDate.AddWeeks(1) {dateTime.AddWeeks(1):MM/dd/yyyy}");
+
+        return sb.ToString();
     }
 }

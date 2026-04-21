@@ -46,6 +46,7 @@ partial class MainForm
         GreetingLabel = new Label();
         PacificTimeZoneLabel = new Label();
         EasternTimeZoneLabel = new Label();
+        AddWeeksRadioButton = new RadioButton();
         ExamplesGroupBox.SuspendLayout();
         SuspendLayout();
         // 
@@ -132,6 +133,7 @@ partial class MainForm
         // 
         // ExamplesGroupBox
         // 
+        ExamplesGroupBox.Controls.Add(AddWeeksRadioButton);
         ExamplesGroupBox.Controls.Add(RawStringLiteralButton);
         ExamplesGroupBox.Controls.Add(FormatDatesRadioButton);
         ExamplesGroupBox.Controls.Add(AddSubtractRadioButton);
@@ -238,6 +240,17 @@ partial class MainForm
         EasternTimeZoneLabel.TabIndex = 11;
         EasternTimeZoneLabel.Text = "EasternTimeZoneLabel";
         // 
+        // AddWeeksRadioButton
+        // 
+        AddWeeksRadioButton.AutoSize = true;
+        AddWeeksRadioButton.Location = new Point(17, 162);
+        AddWeeksRadioButton.Name = "AddWeeksRadioButton";
+        AddWeeksRadioButton.Size = new Size(104, 24);
+        AddWeeksRadioButton.TabIndex = 12;
+        AddWeeksRadioButton.TabStop = true;
+        AddWeeksRadioButton.Text = "Add Weeks";
+        AddWeeksRadioButton.UseVisualStyleBackColor = true;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
@@ -284,4 +297,5 @@ partial class MainForm
     private RadioButton RawStringLiteralButton;
     private Label PacificTimeZoneLabel;
     private Label EasternTimeZoneLabel;
+    private RadioButton AddWeeksRadioButton;
 }

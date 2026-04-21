@@ -197,6 +197,7 @@ public partial class MainForm : Form
             nameof(AddSubtractRadioButton) => Examples.DateAddSubtract(),
             nameof(FormatDatesRadioButton) => Examples.FormatDateTimeExamples(),
             nameof(RawStringLiteralButton) => Examples.RawStringLiteral(),
+            nameof(AddWeeksRadioButton) => Examples.AddWeeksExample(),
             _ => ""
         };
 
