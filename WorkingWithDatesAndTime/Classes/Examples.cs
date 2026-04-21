@@ -639,4 +639,25 @@ internal static class Examples
         Debug.WriteLine($"Date of Birth: {dob}");
         Debug.WriteLine($"Age: {age} years");
     }
+
+    /// <summary>
+    /// Retrieves calendar data for a specific year from the database.
+    /// </summary>
+    /// <remarks>
+    /// This method queries the database for calendar entries where the year matches 2099.
+    /// The results are ordered in descending order by the calendar year.
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// Examples.Calendar();
+    /// </code>
+    /// </example>
+    public static void Calendar()
+    {
+        using var context = new Context();
+        var item = context.Calendar
+            .OrderByDescending(x => x.CalendarYear)
+            .Where(x => x.CalendarYear == 2099)
+            .ToList();
+    }
 }

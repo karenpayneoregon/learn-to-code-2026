@@ -29,6 +29,7 @@ public partial class MainForm : Form
         EasternTimeZoneLabel.Text = $"Date as DateTimeOffset: {Examples.EasternTimeZone()}";
 
         //Examples.GetAge2();
+        Examples.Calendar();
     }
 
     private void DateTimeTryParseButton_Click(object sender, EventArgs e)
