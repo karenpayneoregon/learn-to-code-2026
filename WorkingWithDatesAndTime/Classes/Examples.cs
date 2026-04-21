@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics;
+using System.Globalization;
 using CommonHelpersLibrary.Classes;
 using System.Text;
 using WorkingWithDatesAndTime.Data;
@@ -595,5 +596,47 @@ internal static class Examples
         var eastern = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
         var easternTime = TimeZoneInfo.ConvertTime(nowDto, eastern);
         return easternTime.ToString("yyyy-MM-dd HH:mm:ss zzz");
+    }
+
+    /// <summary>
+    /// Calculates and displays the age in years based on a given date of birth.
+    /// </summary>
+    /// <remarks>
+    /// This method demonstrates how to calculate the age in years by subtracting a date of birth
+    /// from the current date. It uses <see cref="DateOnly"/> and <see cref="TimeSpan"/> for date manipulation.
+    /// The result is logged using <see cref="Debug.WriteLine(string)"/>.
+    /// </remarks>
+    public static void GetAge1()
+    {
+        var dob = new DateOnly(1956, 9, 24); // Date of Birth
+        var today = DateOnly.FromDateTime(DateTime.Today);
+
+        TimeSpan ageSpan = today.ToDateTime(TimeOnly.Parse("00:00:00")) - 
+                           dob.ToDateTime(TimeOnly.Parse("00:00:00"));
+        
+        int years = DateTime.MinValue.AddDays(ageSpan.TotalDays).Year - 1;
+
+        Debug.WriteLine($"Date of Birth: {dob}");
+        Debug.WriteLine($"Today: {today}");
+        Debug.WriteLine($"Age: {years} years");
+    }
+
+    /// <summary>
+    /// Calculates and logs the age based on a hardcoded date of birth.
+    /// </summary>
+    /// <remarks>
+    /// This method calculates the age by subtracting the date of birth (hardcoded as September 24, 1956) 
+    /// from the current date. The result is divided by 10000 to determine the age in years.
+    /// The method logs the current date, the date of birth, and the calculated age using <see cref="Debug.WriteLine"/>.
+    /// </remarks>
+    public static void GetAge2()
+    {
+        int now = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
+        int dob = int.Parse(new DateTime(1956, 9, 24).ToString("yyyyMMdd"));
+        int age = (now - dob) / 10000;
+        
+        Debug.WriteLine($"Now: {now}");
+        Debug.WriteLine($"Date of Birth: {dob}");
+        Debug.WriteLine($"Age: {age} years");
     }
 }
