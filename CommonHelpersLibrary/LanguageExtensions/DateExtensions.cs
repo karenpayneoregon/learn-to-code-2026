@@ -69,6 +69,9 @@ public static class DateExtensions
     /// </remarks>
     public static DateOnly AddBusinessDays(this DateOnly date, int days)
     {
+
+        //TODO add holiday exclusions
+
         int fullWeeks = days / 5;
         date = date.AddDays(fullWeeks * 7);
 
