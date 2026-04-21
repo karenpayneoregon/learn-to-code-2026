@@ -97,7 +97,7 @@ internal static class Examples
 
         DateTime firstDate = new DateTime(2001, 4, 19);
         DateTime otherDate = new DateTime(1991, 6, 5);
-
+        
         sb.AppendLine($"First date: {firstDate:G} Other date: {otherDate:G}");
 
         // Add 5 days to firstDate
@@ -110,6 +110,7 @@ internal static class Examples
 
         // Add 2 months to firstDate
         DateTime addedMonths = firstDate.AddMonths(2);
+        
         sb.AppendLine($"First date + 2 months: {addedMonths:G}");
 
         // Subtract 3 years from otherDate
@@ -117,7 +118,10 @@ internal static class Examples
         sb.AppendLine($"Other date - 3 years: {subtractedYears:G}");
 
         // Add 1 year and 3 months to firstDate
-        DateTime addedComplex = firstDate.AddYears(1).AddMonths(3);
+        DateTime addedComplex = firstDate
+            .AddYears(1)
+            .AddMonths(3);
+        
         sb.AppendLine($"First date + 1 year and 3 months: {addedComplex:G}");
 
         return sb.ToString();

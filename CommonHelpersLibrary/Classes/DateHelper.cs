@@ -10,6 +10,19 @@
 /// </remarks>
 public static class DateHelper
 {
+    /// <summary>
+    /// Retrieves a list of weekend dates (Saturdays and Sundays) within a specified date range.
+    /// </summary>
+    /// <param name="startDate">The start date of the range.</param>
+    /// <param name="endDate">The end date of the range.</param>
+    /// <returns>A list of <see cref="DateOnly"/> objects representing the weekend dates within the specified date range.</returns>
+    /// <exception cref="ArgumentException">
+    /// Thrown if <paramref name="endDate"/> is earlier than <paramref name="startDate"/>.
+    /// </exception>
+    /// <remarks>
+    /// This method iterates through the specified date range and identifies all weekend dates
+    /// (Saturdays and Sundays). It is useful for scenarios where weekend-specific processing is required.
+    /// </remarks>
     public static List<DateOnly> GetWeekendDates(DateOnly startDate, DateOnly endDate)
     {
         if (endDate < startDate)

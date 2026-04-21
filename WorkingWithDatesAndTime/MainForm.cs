@@ -30,6 +30,8 @@ public partial class MainForm : Form
 
         //Examples.GetAge2();
         //Examples.Calendar();
+
+        var list = Examples.GetLeapYearsOnly();
     }
 
     private void DateTimeTryParseButton_Click(object sender, EventArgs e)
