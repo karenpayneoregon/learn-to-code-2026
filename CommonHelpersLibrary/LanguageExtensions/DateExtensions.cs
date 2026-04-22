@@ -49,7 +49,7 @@ public static class DateExtensions
         {
             dateTime = dateTime.AddDays(direction);
 
-            if (dateTime.DayOfWeek is not DayOfWeek.Saturday and not DayOfWeek.Sunday)
+            if (!dateTime.IsWeekend())
             {
                 remainingDays--;
             }
@@ -57,7 +57,23 @@ public static class DateExtensions
 
         return dateTime;
     }
-    
+
+    public static DateTime AddBusinessDays(DateTime current, int days, IEnumerable<DateTime> holidays = null!)
+    {
+        var sign = Math.Sign(days);
+        var unsignedDays = Math.Abs(days);
+        // Loop through days, skipping weekends and holidays
+        for (var i = 0; i < unsignedDays; i++)
+        {
+            do { current = current.AddDays(sign); }
+            while (current.DayOfWeek == DayOfWeek.Saturday ||
+                   current.DayOfWeek == DayOfWeek.Sunday ||
+                   (holidays != null && holidays.Contains(current.Date)));
+        }
+        return current;
+    }
+
+
     /// <summary>
     /// Adds the specified number of business days to the given <see cref="DateOnly"/> instance.
     /// </summary>
@@ -150,5 +166,8 @@ public static class DateExtensions
 
         return (a - b) / 10000;
     }
+
+    public static bool IsWeekend(this DateTime sender) 
+        => sender.DayOfWeek is DayOfWeek.Sunday or DayOfWeek.Saturday;
 
 }
