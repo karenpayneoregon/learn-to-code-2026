@@ -66,7 +66,7 @@ internal partial class Program
         List<string> data = textWriter
             .ToString()
             .Split(Environment.NewLine)
-            .Where(line => !string.IsNullOrWhiteSpace(line))
+            .Where(line => !string.IsNullOrWhiteSpace(line)) // last line may be empty
             .Skip(1) // Skip the header line
             .ToList();
         
