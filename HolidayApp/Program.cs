@@ -13,26 +13,56 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
+        DisplayHolidaySchedule();
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
-    /// <summary>
-    /// Generates and displays a table of holidays for the year 2026 in the United States.
-    /// </summary>
-    /// <remarks>
-    /// This method uses the <see cref="ExportHolidayFormatLocator"/> to export holiday data
-    /// in the "OfficeHolidays" format for the "en-US" culture. The data is then processed
-    /// and displayed in a formatted table using the Spectre.Console library.
-    /// </remarks>
-    private static List<HolidayItem> GenerateHolidayTable()
+    private static void DisplayHolidaySchedule()
     {
-        List<HolidayItem> holidays = [];
         
+        SpectreConsoleHelpers.PrintPink();
+        
+        var list = GenerateHolidayTable();
+        
+        foreach (var item in list)
+        {
+            AnsiConsole.MarkupLine($"[HotPink]{item.Name, -30}[/]{item.Date:MM/dd/yyyy}");
+            var tempDate = item.Date.AddDays(-3);
+            Console.WriteLine($" {tempDate:MM/dd/yyyy} -> {tempDate.AddWorkingDays(5):MM/dd/yyyy}");
+        }
+    }
+
+    /// <summary>
+    /// Generates a list of holidays for the year 2026 in the United States.
+    /// </summary>
+    /// <param name="showTable">
+    /// A boolean value indicating whether to display the holiday table in the console.
+    /// If <c>true</c>, the table is displayed; otherwise, it is not.
+    /// </param>
+    /// <returns>
+    /// A list of <see cref="HolidayItem"/> objects, each representing a holiday with its name and date.
+    /// </returns>
+    /// <remarks>
+    /// This method retrieves holiday data using the <see cref="ExportHolidayFormatLocator"/> and processes it
+    /// to create a list of holidays. Optionally, it can display the holidays in a formatted table using the
+    /// Spectre.Console library. The resulting list is serialized to a JSON file named "holidays.json" if it
+    /// does not already exist.
+    /// </remarks>
+    private static List<HolidayItem> GenerateHolidayTable(bool showTable = false)
+    {
+
+        if (showTable)
+        {
+            SpectreConsoleHelpers.PrintPink();
+        }
+        
+        List<HolidayItem> holidays = [];
+
         var exporter = ExportHolidayFormatLocator.LocateByType(ExportType.OfficeHolidays);
         using var textWriter = new StringWriter();
-        exporter.Export(new WorkingDayCultureInfo("en-US"), 2026, textWriter);
-        
+        exporter.Export(new WorkingDayCultureInfo("en-US"), DateTime.Now.Year, textWriter);
+
         List<string> data = textWriter
             .ToString()
             .Split(Environment.NewLine)
@@ -40,7 +70,6 @@ internal partial class Program
             .Skip(1) // Skip the header line
             .ToList();
         
-
         var table = new Table()
             .BorderColor(Color.Blue)
             .Title("[yellow]US Holidays 2026[/]")
@@ -58,9 +87,23 @@ internal partial class Program
             }
         }
 
-        AnsiConsole.Write(table);
+        if (showTable)
+        {
+            AnsiConsole.Write(table);
+        }
+
+        List<HolidayItem> ordered = holidays.OrderBy(x => x.Date).ToList();
+
+        var json = System.Text.Json.JsonSerializer.Serialize(ordered, Indented);
         
-        return holidays;
+        var fileName = "holidays.json";
+
+        if (!File.Exists(fileName))
+        {
+            File.WriteAllText(fileName, json);
+        }
+        
+        return ordered;
     }
 
     /// <summary>
@@ -68,6 +111,9 @@ internal partial class Program
     /// </summary>
     private static void StockSamples()
     {
+
+        SpectreConsoleHelpers.PrintPink();
+        
         // Add 5 working days to a date
         DateTime futureDate = DateTime.Now.AddWorkingDays(5);
 

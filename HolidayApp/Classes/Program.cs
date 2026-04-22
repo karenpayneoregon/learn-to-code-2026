@@ -5,6 +5,7 @@ using HolidayApp.Classes.Core;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Text.Json;
 using static ConsoleConfigurationLibrary.Classes.ApplicationConfiguration;
 
 // ReSharper disable once CheckNamespace
@@ -32,9 +33,11 @@ internal partial class Program
         var services = ConfigureServices();
         using var provider = services.BuildServiceProvider();
         var setup = provider.GetService<SetupServices>();
-        setup.GetConnectionStrings();
+        setup!.GetConnectionStrings();
         setup.GetEntitySettings();
 
         SpectreConsoleHelpers.SetEncoding();
     }
+
+    public static JsonSerializerOptions Indented => new() { WriteIndented = true };
 }
