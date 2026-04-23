@@ -118,6 +118,20 @@ internal partial class Program
         return ordered;
     }
 
+    /// <summary>
+    /// Demonstrates various extension methods and utilities for working with dates, times, and business logic.
+    /// </summary>
+    /// <remarks>
+    /// This method showcases the following examples:
+    /// <list type="bullet">
+    /// <item>Checking if a specific date is a working day using a culture-specific calendar.</item>
+    /// <item>Determining if a date falls within daylight saving time.</item>
+    /// <item>Setting a specific time for a date and verifying if it is within business hours.</item>
+    /// <item>Adding a specified number of working days to the current date.</item>
+    /// <item>Checking if the current time falls between two specified times.</item>
+    /// </list>
+    /// The results of these operations are displayed in the console using Spectre.Console for formatting.
+    /// </remarks>
     public static void ExtensionExamples()
     {
         SpectreConsoleHelpers.PrintPink(); 
