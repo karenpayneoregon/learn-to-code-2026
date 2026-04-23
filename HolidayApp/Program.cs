@@ -4,7 +4,7 @@ using DateTimeExtensions.TimeOfDay;
 using DateTimeExtensions.WorkingDays;
 using HolidayApp.Classes.Core;
 using Spectre.Console;
-using System.IO;
+using HolidayApp.Classes;
 using HolidayApp.Models;
 
 namespace HolidayApp;
@@ -14,10 +14,21 @@ internal partial class Program
     static void Main(string[] args)
     {
         DisplayHolidaySchedule();
-
+        
+        
+        
+        ExtensionExamples();   
+        
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 
+    /// <summary>
+    /// Displays the holiday schedule in the console.
+    /// </summary>
+    /// <remarks>
+    /// This method generates a list of holidays, formats them, and prints them to the console.
+    /// It uses Spectre.Console for styled output and includes additional date calculations.
+    /// </remarks>
     private static void DisplayHolidaySchedule()
     {
         
@@ -29,6 +40,7 @@ internal partial class Program
         {
             AnsiConsole.MarkupLine($"[HotPink]{item.Name, -30}[/]{item.Date:MM/dd/yyyy}");
             var tempDate = item.Date.AddDays(-3);
+
             Console.WriteLine($" {tempDate:MM/dd/yyyy} -> {tempDate.AddWorkingDays(5):MM/dd/yyyy}");
         }
     }
@@ -106,6 +118,40 @@ internal partial class Program
         return ordered;
     }
 
+    public static void ExtensionExamples()
+    {
+        SpectreConsoleHelpers.PrintPink(); 
+
+        var culture = new WorkingDayCultureInfo("en-US");
+
+        var specificDate = new DateTime(DateTime.Now.Year, 7, 4); // Example holiday
+        AnsiConsole.MarkupLine(specificDate.IsWorkingDay(culture)
+            ? $"[green bold]{specificDate:yyyy-MM-dd} IS a working day.[/]"
+            : $"[red bold]{specificDate:yyyy-MM-dd} is NOT a working day.[/]");
+
+        AnsiConsole.MarkupLine(specificDate.IsDaylightSavingTime()
+            ? $"[green bold]{specificDate:yyyy-MM-dd} IS in daylight saving time.[/]"
+            : $"[red bold]{specificDate:yyyy-MM-dd} is NOT in daylight saving time.[/]");
+
+        specificDate = new DateTime(2026,4,23);
+        specificDate = specificDate.SetTime(10);
+        AnsiConsole.MarkupLine(specificDate.IsWithinBusinessHours(new TimeSpan(9, 0, 0), new TimeSpan(17, 0, 0))
+            ? $"[green bold]{specificDate:yyyy-MM-dd} IS within business hours.[/]"
+            : $"[red bold]{specificDate:yyyy-MM-dd} is NOT within business hours.[/]");
+
+
+        // Add 5 working days to a date
+        DateTime futureDate = DateTime.Now.AddWorkingDays(5);
+        AnsiConsole.MarkupLine($"[green bold]Add 5 working days to a {DateTime.Now:MM/dd/yyyy}:[/] " +
+                               $"[yellow]{futureDate:yyyy-MM-dd}[/]");
+        
+
+        // Check if a time is between two other times
+        bool isBetween = DateTime.Now.IsBetween(new Time(9), new Time(17));
+        AnsiConsole.MarkupLine($"[green bold]Is the[/] [HotPink]{DateTime.Now:HH:mm tt}[/] [green bold]between 9 AM and 5 PM?[/] " +
+                               $"[yellow]{isBetween.ToYesNo()}[/]");
+    }
+    
     /// <summary>
     /// Demonstrates the usage of various date and time extension methods.
     /// </summary>
