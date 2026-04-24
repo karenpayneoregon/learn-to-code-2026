@@ -15,9 +15,9 @@ internal partial class Program
     {
         DisplayHolidaySchedule();
         
+        ExtensionExamples();  
         
-        
-        ExtensionExamples();   
+        StockSamples();
         
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
@@ -43,6 +43,8 @@ internal partial class Program
 
             Console.WriteLine($" {tempDate:MM/dd/yyyy} -> {tempDate.AddWorkingDays(5):MM/dd/yyyy}");
         }
+
+        Console.WriteLine();
     }
 
     /// <summary>
@@ -174,8 +176,8 @@ internal partial class Program
 
         SpectreConsoleHelpers.PrintPink();
         
-        // Add 5 working days to a date
-        DateTime futureDate = DateTime.Now.AddWorkingDays(5);
+        // Add 7 working days to a date
+        DateTime futureDate = DateTime.Now.AddWorkingDays(7);
 
         // Check if a date is a working day
         bool isWorkingDay = DateTime.Now.IsWorkingDay();
@@ -185,5 +187,9 @@ internal partial class Program
 
         // Check if a time is between two other times
         bool isBetween = DateTime.Now.IsBetween(new Time(9), new Time(17));
+
+        var friday = new DateTime(2026, 4, 24); // A friday
+        var friday_plus_two_working_days = friday.AddWorkingDays(2);
+
     }
 }
