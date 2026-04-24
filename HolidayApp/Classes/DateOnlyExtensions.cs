@@ -25,6 +25,12 @@ public static class DateOnlyExtensions
         return DateOnly.FromDateTime(newDate);
     }
 
+    public static DateOnly AddBusinessWeekDay(this DateOnly day)
+    {
+        var date = DateTimeFromDateOnly(day);
+        var newDate = date.AddWorkingDays(7, new WorkingDayCultureInfo());
+        return DateOnly.FromDateTime(newDate);
+    }
     public static IDictionary<DateOnly, Holiday> AllYearHolidays(this DateOnly day)
     {
         IDictionary<DateTime, Holiday>? x = day
