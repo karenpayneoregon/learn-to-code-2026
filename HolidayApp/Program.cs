@@ -178,10 +178,14 @@ internal partial class Program
         
         // Add 7 working days to a date
         DateTime futureDate = DateTime.Now.AddWorkingDays(7);
+        var futureDate1 = new DateOnly(2026, 4, 24).AddWorkingDays(7);
 
         // Check if a date is a working day
         bool isWorkingDay = DateTime.Now.IsWorkingDay();
-
+        
+        var todayDateOnly = DateOnly.FromDateTime(DateTime.Now);
+        isWorkingDay = todayDateOnly.IsWorkingDay();
+        
         // Get the difference between dates in natural language
         string dateDiff = DateTime.Now.ToNaturalText(DateTime.Now.AddDays(45));
 
@@ -191,5 +195,17 @@ internal partial class Program
         var friday = new DateTime(2026, 4, 24); // A friday
         var friday_plus_two_working_days = friday.AddWorkingDays(2);
 
+        var christmasDay = new DateOnly(2026, 12, 25);
+        var isHoliday = christmasDay.IsHoliday();
+
+        var dictHolidays = new DateOnly(DateTime.Now.Year, 12, 25).AllYearHolidays();
+
+        AnsiConsole.MarkupLine($"[HotPink bold]All year holidays for {DateTime.Now.Year}:[/]");
+        foreach (var (holidayDate, value) in dictHolidays)
+        {
+            AnsiConsole.MarkupLine(holidayDate.Month == DateTime.Now.Month
+                ? $"{holidayDate:MM/dd/yyyy} {value.Name} :check_mark:"
+                : $"{holidayDate:MM/dd/yyyy} {value.Name}");
+        }
     }
 }
