@@ -184,7 +184,7 @@ internal partial class Program
         
         // Add 7 working days to a date
         DateTime futureDate = DateTime.Now.AddWorkingDays(7);
-        var futureDate1 = new DateOnly(2026, 4, 24).AddWorkingDays(7);
+        var futureDate1 = DateOnlyExtensions.AddWorkingDays(new DateOnly(2026, 4, 24), 7);
 
         // Check if a date is a working day
         bool isWorkingDay = DateTime.Now.IsWorkingDay();
