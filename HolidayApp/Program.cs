@@ -17,7 +17,7 @@ internal partial class Program
         
         ExtensionExamples();  
         
-        StockSamples();
+        Samples();
         
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
@@ -169,9 +169,15 @@ internal partial class Program
     }
     
     /// <summary>
-    /// Demonstrates the usage of various date and time extension methods.
+    /// Provides examples demonstrating the usage of various date and time extension methods 
+    /// and Spectre.Console helpers.
     /// </summary>
-    private static void StockSamples()
+    /// <remarks>
+    /// This method showcases functionalities such as adding working days to dates, 
+    /// checking if a date is a working day or holiday, calculating natural language 
+    /// differences between dates, and determining if a time falls within a specific range.
+    /// </remarks>
+    private static void Samples()
     {
 
         SpectreConsoleHelpers.PrintPink();
