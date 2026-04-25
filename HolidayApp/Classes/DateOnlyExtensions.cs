@@ -106,5 +106,5 @@ public static class DateOnlyExtensions
     }
 
     private static DateTime DateTimeFromDateOnly(DateOnly day) 
-        => day.ToDateTime(TimeOnly.Parse("00:00 AM"));
+        => day.ToDateTime(new TimeOnly(0, 0));
 }
