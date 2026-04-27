@@ -9,7 +9,7 @@ namespace SpectreUpgrade2026.Classes.Core;
 
 public static class SpectreConsoleHelpers
 {
-    /// <summary>
+    /// <summary>PrintPink
     /// Sets and displays a styled window title in the console using Spectre.Console.
     /// </summary>
     /// <param name="alignment">The alignment of the title within the console.</param>
