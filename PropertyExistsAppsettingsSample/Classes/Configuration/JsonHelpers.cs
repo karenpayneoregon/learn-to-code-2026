@@ -80,7 +80,7 @@ public class JsonHelpers
     /// in the "appsettings.json" file.
     /// </summary>
     /// <returns>
-    /// A tuple containing a boolean and a string:
+    /// A tuple containing a boolean and a string
     /// <list type="bullet">
     /// <item>
     /// <description><c>true</c> if the "MainConnection" connection string exists; otherwise, <c>false</c>.</description>
