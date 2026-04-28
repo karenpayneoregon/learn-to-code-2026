@@ -12,11 +12,20 @@ internal partial class Program
         
         if (JsonHelpers.MainConnectionExists())
         {
-            SpectreConsoleHelpers.PinkPill(Justify.Left, AppConnections.Instance.MainConnection);
+            SpectreConsoleHelpers.PinkPill(Justify.Left, "MainConnection does exist");
         }
         else
         {
             SpectreConsoleHelpers.ErrorPill(Justify.Left, "MainConnection does not exist");
+        }
+
+        Console.WriteLine();
+        
+        var (found, connectionString) = JsonHelpers.GetMainConnection();
+
+        if (found)
+        {
+            Console.WriteLine(connectionString);
         }
 
         Console.WriteLine();

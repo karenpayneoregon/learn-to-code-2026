@@ -74,6 +74,43 @@ public class JsonHelpers
                connectionStrings.TryGetProperty("MainConnection", out _);
     }
 
+
+    /// <summary>
+    /// Retrieves the "MainConnection" connection string from the "ConnectionStrings" section 
+    /// in the "appsettings.json" file.
+    /// </summary>
+    /// <returns>
+    /// A tuple containing a boolean and a string:
+    /// <list type="bullet">
+    /// <item>
+    /// <description><c>true</c> if the "MainConnection" connection string exists; otherwise, <c>false</c>.</description>
+    /// </item>
+    /// <item>
+    /// <description>The connection string value if found; otherwise, an empty string.</description>
+    /// </item>
+    /// </list>
+    /// </returns>
+    /// <remarks>
+    /// This method checks for the presence of the "MainConnection" property within the 
+    /// "ConnectionStrings" section of the "appsettings.json" file. If found, it returns 
+    /// the connection string value; otherwise, it indicates that the property is missing.
+    /// </remarks>
+    public static (bool found, string connectionString) GetMainConnection()
+    {
+        var jsonContent = File.ReadAllText(FileName);
+        using var doc = JsonDocument.Parse(jsonContent);
+
+        if (doc.RootElement.TryGetProperty("ConnectionStrings", out JsonElement connectionStrings) &&
+            connectionStrings.TryGetProperty("MainConnection", out JsonElement value))
+        {
+            // Prefer GetString for JSON string values; fall back to ToString if necessary.
+            string conn = value.GetString() ?? value.ToString();
+            return (true, conn);
+        }
+
+        return (false, string.Empty);
+    }
+
     /// <summary>
     /// Determines whether a specified property exists within a given section 
     /// of the "appsettings.json" file.
