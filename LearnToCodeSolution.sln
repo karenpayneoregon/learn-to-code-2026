@@ -86,6 +86,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Spectre", "Spectre", "{1DE7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpectreUpgrade2026", "SpectreUpgrade2026\SpectreUpgrade2026.csproj", "{43F4295C-2C73-4FC6-A0AC-8B0D752E8CCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyExistsAppsettingsSample", "PropertyExistsAppsettingsSample\PropertyExistsAppsettingsSample.csproj", "{7010330D-082F-435A-A507-0133126A407C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -184,6 +186,10 @@ Global
 		{43F4295C-2C73-4FC6-A0AC-8B0D752E8CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43F4295C-2C73-4FC6-A0AC-8B0D752E8CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43F4295C-2C73-4FC6-A0AC-8B0D752E8CCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7010330D-082F-435A-A507-0133126A407C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7010330D-082F-435A-A507-0133126A407C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7010330D-082F-435A-A507-0133126A407C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7010330D-082F-435A-A507-0133126A407C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -220,6 +226,7 @@ Global
 		{27EA7A4F-E14A-46BB-A4F1-84EEFE9766D6} = {D2533115-D31F-BA5B-3710-546854EECC7D}
 		{1DE707E8-3DF0-540E-6055-7E84346D6313} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
 		{43F4295C-2C73-4FC6-A0AC-8B0D752E8CCC} = {1DE707E8-3DF0-540E-6055-7E84346D6313}
+		{7010330D-082F-435A-A507-0133126A407C} = {9D6C0E72-28F9-ACA9-75EC-2FE7E821B664}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B96CB79D-6D7B-4B0C-A00F-CD46EC5D6D4E}
