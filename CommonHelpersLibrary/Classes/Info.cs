@@ -4,8 +4,10 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
 
 namespace CommonHelpersLibrary.Classes;
+
 /// <summary>
-/// Provides utility methods to retrieve assembly metadata such as company, product, copyright, and version information.
+/// Provides utility methods to retrieve assembly metadata (company, product, copyright, version)
+/// and (optionally) details about the caller that invoked each method.
 /// </summary>
 public class Info
 {
@@ -66,36 +68,6 @@ public class Info
     }
 
     /// <summary>
-    /// Retrieves the copyright information associated with the calling assembly.
-    /// </summary>
-    /// <param name="caller">
-    /// When this method returns, contains details about the caller, including the assembly name, 
-    /// version, target framework, type name, method name, file path, and line number.
-    /// </param>
-    /// <param name="memberName">
-    /// The name of the member that invoked this method. This parameter is optional and is automatically 
-    /// populated by the compiler if not explicitly provided.
-    /// </param>
-    /// <param name="filePath">
-    /// The file path of the source code that invoked this method. This parameter is optional and is 
-    /// automatically populated by the compiler if not explicitly provided.
-    /// </param>
-    /// <param name="lineNumber">
-    /// The line number in the source code file that invoked this method. This parameter is optional 
-    /// and is automatically populated by the compiler if not explicitly provided.
-    /// </param>
-    /// <returns>
-    /// A <see cref="string"/> containing the copyright information, or "No copyright information found" 
-    /// if the copyright is not specified in the assembly metadata.
-    /// </returns>
-    [MethodImpl(MethodImplOptions.NoInlining)]
-    public static string GetCopyright(out CallerDetails caller, [CallerMemberName] string? memberName = null, [CallerFilePath] string? filePath = null, [CallerLineNumber] int lineNumber = 0)
-    {
-        caller = BuildCallerDetails(memberName, filePath, lineNumber);
-        return GetCopyright();
-    }
-
-    /// <summary>
     /// Retrieves the company name associated with the calling assembly.
     /// </summary>
     /// <returns>
@@ -107,7 +79,24 @@ public class Info
     {
         var asm = Assembly.GetCallingAssembly();
         var attr = asm.GetCustomAttribute<AssemblyCompanyAttribute>();
+
         return attr?.Company ?? "No company information found.";
+    }
+
+    /// <summary>
+    /// Retrieves the description information associated with the calling assembly.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="string"/> containing the description information, or "No description found" 
+    /// if the description is not specified in the assembly metadata.
+    /// </returns>
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static string GetDescription()
+    {
+        var asm = Assembly.GetCallingAssembly();
+        var attr = asm.GetCustomAttribute<AssemblyDescriptionAttribute>();
+
+        return attr?.Description ?? "No description found.";
     }
 
     [MethodImpl(MethodImplOptions.NoInlining)]
@@ -164,5 +153,53 @@ public class Info
     {
         caller = BuildCallerDetails(memberName, filePath, lineNumber);
         return GetVersion();
+    }
+
+    /// <summary>
+    /// Retrieves the build date of the calling assembly from its metadata.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="string"/> containing the build date if it is specified in the assembly metadata,
+    /// or <see langword="null"/> if the build date is not found.
+    /// </returns>
+    public static string? GetBuildDate()
+    {
+        var asm = Assembly.GetCallingAssembly();
+
+        var attr = asm
+            .GetCustomAttributes<AssemblyMetadataAttribute>()
+            .FirstOrDefault(a => a.Key == "BuildDate");
+
+        return attr?.Value;
+    }
+
+    public static DateOnly BuildDate()
+    {
+        var buildDate = GetBuildDate();
+        if (buildDate is not null && DateOnly.TryParse(buildDate, out var dateOnly))
+        {
+            return dateOnly;
+        }
+
+        return default;
+    }
+
+    /// <summary>
+    /// Retrieves the build date of the calling assembly from its metadata, optionally including caller details.
+    /// </summary>
+    /// <param name="caller">Output parameter to receive caller details.</param>
+    /// <param name="memberName">The name of the member calling this method (automatically provided).</param>
+    /// <param name="filePath">The full path of the source file calling this method (automatically provided).</param>
+    /// <param name="lineNumber">The line number in the source file where this method is called (automatically provided).</param>
+    /// <returns>
+    /// A <see cref="DateOnly"/> representing the build date if found, otherwise <see langword="default"/> (<see cref="DateOnly.MinValue"/>).
+    /// </returns>
+    public static DateOnly BuildDate(out CallerDetails caller, [CallerMemberName] string? memberName = null,
+        [CallerFilePath] string? filePath = null, [CallerLineNumber] int lineNumber = 0)
+    {
+        caller = BuildCallerDetails(memberName, filePath, lineNumber);
+        return BuildDate();
+
+
     }
 }

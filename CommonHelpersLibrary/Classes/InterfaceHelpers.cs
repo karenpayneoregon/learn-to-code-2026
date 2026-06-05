@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace CommonHelpersLibrary;
+namespace CommonHelpersLibrary.Classes;
 
 /// <summary>
 /// Provides utility methods for working with types, interfaces, and generic collections.
@@ -116,21 +116,19 @@ public static partial class InterfaceHelpers
     /// <returns>
     /// <see langword="true"/> if the specified type implements more than one of the provided interfaces; otherwise, <see langword="false"/>.
     /// </returns>
-    /// <exception cref="ArgumentException">
-    /// Thrown when the <paramref name="interfaces"/> array is null, empty, or contains types that are not interfaces.
-    /// </exception>
-    public static bool ImplementsMoreThanOneInterface<T>(Type[] interfaces)
+    public static bool ImplementsInterfaces<T>(Type[] interfaces)
     {
         if (interfaces == null || interfaces.Length == 0)
             throw new ArgumentException("At least one interface type must be provided.");
 
-        if (interfaces.Any(i => !i.IsInterface))
+        if (interfaces.Any(x=> !x.IsInterface))
             throw new ArgumentException("All types provided must be interfaces.");
 
         var targetType = typeof(T);
 
         var implementedInterfaces = targetType.GetInterfaces();
-        var matchCount = interfaces.Count(i => implementedInterfaces.Contains(i));
+        // ReSharper disable once ConvertClosureToMethodGroup
+        var matchCount = interfaces.Count(x => implementedInterfaces.Contains(x));
 
         return matchCount > 1;
     }

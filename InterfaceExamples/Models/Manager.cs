@@ -1,0 +1,12 @@
+﻿using InterfaceExamples.Interfaces;
+
+namespace InterfaceExamples.Models;
+
+internal class Manager : IHuman, IManager
+{
+    public int Id { get; set; }
+    public required string FirstName { get; set; }
+    public required string LastName { get; set; }
+    public DateOnly BirthDate { get; set; }
+    public List<Employee> Employees { get; set; } = [];
+}

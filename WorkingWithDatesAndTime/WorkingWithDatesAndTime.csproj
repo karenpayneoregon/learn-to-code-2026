@@ -9,6 +9,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="DateTimeExtensions" Version="5.11.17" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Content Remove="C:\Users\paynek\.nuget\packages\consoleconfigurationlibrary\1.0.0.2\contentFiles\any\net8.0\readme.md" />
 	</ItemGroup>
 

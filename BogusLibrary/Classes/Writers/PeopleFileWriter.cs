@@ -4,16 +4,16 @@ namespace BogusLibrary.Classes.Writers;
 public static class PeopleFileWriter
 {
     /// <summary>
-    /// Writes a list of <see cref="Person"/> objects to a file in a formatted manner.
+    /// Writes a list of <see cref="Models.Person"/> objects to a file in a formatted manner.
     /// </summary>
     /// <param name="people">
-    /// A list of <see cref="Person"/> objects to be written to the file.
+    /// A list of <see cref="Models.Person"/> objects to be written to the file.
     /// </param>
     /// <param name="filePath">
     /// The path of the file where the data will be written.
     /// </param>
     /// <remarks>
-    /// Each <see cref="Person"/> object is written with its properties formatted and aligned.
+    /// Each <see cref="Models.Person"/> object is written with its properties formatted and aligned.
     /// The file includes details such as ID, name, gender, birthdate, social security number, email, 
     /// and address information.
     /// </remarks>
@@ -29,7 +29,7 @@ public static class PeopleFileWriter
     /// PeopleFileWriter.WriteToFile(people, "output.txt");
     /// </code>
     /// </example>
-    public static void WriteToFile(List<Person> people, string filePath)
+    public static void WriteToFile(List<Models.Person> people, string filePath)
     {
         using var writer = new StreamWriter(filePath);
 
@@ -53,7 +53,7 @@ public static class PeopleFileWriter
         }
     }
 
-    public static void GenerateCommaDelimitedFile(List<Person> people, string filePath)
+    public static void GenerateCommaDelimitedFile(List<Models.Person> people, string filePath)
     {
         using var writer = new StreamWriter(filePath);
 

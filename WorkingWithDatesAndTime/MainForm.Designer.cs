@@ -37,6 +37,7 @@ partial class MainForm
         ConvertToEasternButton = new Button();
         OperatorsButton = new Button();
         ExamplesGroupBox = new GroupBox();
+        AddWeeksRadioButton = new RadioButton();
         RawStringLiteralButton = new RadioButton();
         FormatDatesRadioButton = new RadioButton();
         AddSubtractRadioButton = new RadioButton();
@@ -46,7 +47,6 @@ partial class MainForm
         GreetingLabel = new Label();
         PacificTimeZoneLabel = new Label();
         EasternTimeZoneLabel = new Label();
-        AddWeeksRadioButton = new RadioButton();
         ExamplesGroupBox.SuspendLayout();
         SuspendLayout();
         // 
@@ -87,7 +87,7 @@ partial class MainForm
         HolidaysButton.Name = "HolidaysButton";
         HolidaysButton.Size = new Size(306, 29);
         HolidaysButton.TabIndex = 3;
-        HolidaysButton.Text = "Holidays";
+        HolidaysButton.Text = "Holidays from database";
         HolidaysButton.UseVisualStyleBackColor = true;
         HolidaysButton.Click += HolidaysButton_Click;
         // 
@@ -146,6 +146,17 @@ partial class MainForm
         ExamplesGroupBox.TabIndex = 8;
         ExamplesGroupBox.TabStop = false;
         ExamplesGroupBox.Text = "Examples";
+        // 
+        // AddWeeksRadioButton
+        // 
+        AddWeeksRadioButton.AutoSize = true;
+        AddWeeksRadioButton.Location = new Point(17, 162);
+        AddWeeksRadioButton.Name = "AddWeeksRadioButton";
+        AddWeeksRadioButton.Size = new Size(104, 24);
+        AddWeeksRadioButton.TabIndex = 12;
+        AddWeeksRadioButton.TabStop = true;
+        AddWeeksRadioButton.Text = "Add Weeks";
+        AddWeeksRadioButton.UseVisualStyleBackColor = true;
         // 
         // RawStringLiteralButton
         // 
@@ -239,17 +250,6 @@ partial class MainForm
         EasternTimeZoneLabel.Size = new Size(160, 20);
         EasternTimeZoneLabel.TabIndex = 11;
         EasternTimeZoneLabel.Text = "EasternTimeZoneLabel";
-        // 
-        // AddWeeksRadioButton
-        // 
-        AddWeeksRadioButton.AutoSize = true;
-        AddWeeksRadioButton.Location = new Point(17, 162);
-        AddWeeksRadioButton.Name = "AddWeeksRadioButton";
-        AddWeeksRadioButton.Size = new Size(104, 24);
-        AddWeeksRadioButton.TabIndex = 12;
-        AddWeeksRadioButton.TabStop = true;
-        AddWeeksRadioButton.Text = "Add Weeks";
-        AddWeeksRadioButton.UseVisualStyleBackColor = true;
         // 
         // MainForm
         // 

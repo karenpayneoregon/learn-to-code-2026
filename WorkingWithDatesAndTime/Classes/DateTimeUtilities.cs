@@ -6,16 +6,17 @@ namespace WorkingWithDatesAndTime.Classes;
 internal class DateTimeUtilities
 {
     /// <summary>
-    /// Identifies the format of a given date string by attempting to parse it against a predefined list of date formats.
+    /// Determines the format of a given date string by attempting to parse it against a predefined set of date formats.
     /// </summary>
-    /// <param name="input">The date string whose format needs to be identified.</param>
+    /// <param name="input">The date string whose format needs to be determined.</param>
     /// <returns>
-    /// A string representing the detected date format of the input string.
-    /// If no matching format is found, it returns a message indicating that the format is unknown.
+    /// A string indicating the detected date format of the input string.
+    /// If no matching format is found, it returns "Unknown".
     /// </returns>
     /// <remarks>
-    /// This method leverages <see cref="DateTime.TryParseExact"/> with a comprehensive set of date formats
-    /// and utilizes <see cref="CultureInfo.InvariantCulture"/> to ensure consistent behavior across different cultures.
+    /// This method uses <see cref="DateTime.TryParseExact(string, string[], IFormatProvider, DateTimeStyles, out DateTime)"/> 
+    /// with a comprehensive list of date formats and relies on <see cref="CultureInfo.InvariantCulture"/> to ensure 
+    /// consistent parsing behavior across different cultures.
     /// </remarks>
     public static string GetDateFormat(string input)
     {
